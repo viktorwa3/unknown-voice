@@ -1,0 +1,36 @@
+THE UNKNOWN - test lines for ElevenLabs Voice Design
+=====================================================
+Rule: record the SAME line for BOTH the male and female take (identical text),
+slow and flat delivery. Dark vowels (o/u/a) survive the formant work; go light
+on s/f sibilance -- the highpass + crush make it hiss.
+
+--- PRIMARY A/B LINE (use this one across all 5 style renders) ---
+You saw me before you knew my name.
+  ( low sibilance, dark vowels, ~3s slow -- ideal for comparing 01-05 )
+
+--- SHORT / STALKING ---
+I have worn your voice. It fits.
+Come closer. I remember how you.
+We are not what you left in the dark.
+Do not look for the mouth that speaks.
+Stay. The others did.
+You are already inside the sound.
+
+--- LOW-VOWEL HEAVY (stress the sub / rumble + formant shift) ---
+Under. Below. All the way down.
+I am the hollow you grew around.
+Come home to the cold.
+
+--- PLOSIVE HEAVY (stress the pulse / crush breakup) ---
+Break. Break and be part of it.
+Do not blink. Do not turn back.
+
+--- LONGER (stress reverb tails + preverb pre-swell) ---
+You keep turning around. That is good. Keep turning.
+We will meet in the middle of it.
+There is more of us now than there ever was of you.
+
+--- ONE-WORD (test the pre-swell / onset on something tiny) ---
+Closer.
+Stay.
+Mine.
