@@ -49,9 +49,30 @@ ElevenLabs Voice Design (2 голоса: male + female, ОДНА фраза)
 - `overdrive` — мокрая гортанность.
 - `bandpass 1200 3q` + провал на 3.5k — "полый, изнутри тела".
 
+## Репозиторий / кроссплатформенность
+
+```
+scripts/Build-UnknownVoice.ps1   # Windows (PS 5.1+)
+scripts/build-unknown-voice.sh   # Linux/WSL/mac (bash) — ПОЛНЫЙ паритет по фичам
+scripts/Test-Styles.ps1          # 5 пресетов -> versions/ (Windows)
+scripts/test-styles.sh           # 5 пресетов -> versions/ (bash)
+tests/build-unknown-voice.bats   # bats, стабы sox/ffmpeg (fixtures/) — реальные бинарники не нужны
+Makefile                         # make lint (shellcheck) / test (bats) / check
+```
+
+- **Паритет .sh <-> .ps1 обязателен.** Меняешь один — зеркаль в другой. bats-тесты
+  проверяют форму пайплайна по argv-логу стабов (слои, pan-remix, `-m` не `-M`,
+  гейтед-ревер `reverb -w`, биткраш `-b 8`, преверб `reverse reverb`, диапазоны).
+- bash-порт: float-математика и клампы через `awk`, equal-power pan через `awk cos/sin`,
+  динамические аргументы sox через bash-массивы. ffmpeg-автодетект добавляет
+  `$SCRIPT_DIR/../ffmpeg/bin/ffmpeg.exe` (bundled) как кандидата.
+- `Test-Styles.*` резолвят корень репо от папки скрипта, пишут в `versions/`, входы
+  берут из корня (`male.mp3`/`fem.mp3`). `.gitignore` игнорит `*.wav` (кроме fixtures).
+
 ## Скрипт
 
-`Build-UnknownVoice.ps1 -MaleFile male.mp3 -FemaleFile fem.mp3 [-Dread 1.4] [-KeepStems]`
+`scripts/Build-UnknownVoice.ps1 -MaleFile male.mp3 -FemaleFile fem.mp3 [-Dread 1.4] [-Wide 0.8] [-KeepStems]`
+bash: `scripts/build-unknown-voice.sh -m male.mp3 -f fem.mp3 [-d 1.4] [--wide 0.8] [--keep-stems]`
 
 - `-Dread` (0.1–3.0 валидация, но полезно **0.6–1.6**) — общий множитель жути, крутит speed/overdrive/pad разом. Производные скорости клампятся, чтобы не было алиасинга.
 - `-FemBoost` (0–12 dB, деф. 4) — поднимает женские слои. Полный буст идёт на **HIGH** (узнаваемый женский шёпот, `gain -n -12+FemBoost`), GHOST лифтится частично (`*0.6`), т.к. читается как мужской.

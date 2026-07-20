@@ -1,0 +1,8 @@
+# generated audio
+*.wav
+!tests/fixtures/**/*.wav
+_stems/
+# local sources from ElevenLabs
+*.mp3
+*.flac
+*.m4a

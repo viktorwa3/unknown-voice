@@ -1,0 +1,6 @@
+# Default checks only. NOT enable=all — that turns on noisy style optionals
+# (SC2250 brace-everything etc.) with zero real-bug value for this project.
+# Intentional patterns we opt out of:
+#   SC2310 - autodetect() is called inside `|| die`; set -e disabling there is
+#            deliberate (we capture the non-zero into a var and handle it).
+disable=SC2310

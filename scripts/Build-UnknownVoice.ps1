@@ -4,21 +4,22 @@
     sources: a male and a female take of the SAME phrase.
 
 .DESCRIPTION
-    Flow: ElevenLabs (mp3/wav) -> ffmpeg (normalize to wav) -> SoX (layers + desync + character).
+    Flow: ElevenLabs (mp3/wav) -> ffmpeg (normalize to wav) -> SoX (layers + desync
+    + pan mix + character + optional beds -> stereo).
 
     Layers:
       LOW   (male)   - guttural bottom, formants shifted down, overdrive
       MID   (male)   - dry base, keeps intelligibility, slight detune
       HIGH  (female) - cracked whisper on top, formants shifted up, highpass
       GHOST (female) - female dragged DOWN into male register.
-                       This is the key layer: it turns "a duet" into "a thing
-                       wearing stolen voices".
+                       The key layer: turns "a duet" into "a thing wearing
+                       stolen voices".
 
 .EXAMPLE
     .\Build-UnknownVoice.ps1 -MaleFile male.mp3 -FemaleFile fem.mp3
 
 .EXAMPLE
-    .\Build-UnknownVoice.ps1 -MaleFile male.wav -FemaleFile fem.wav -Dread 1.4 -KeepStems
+    .\Build-UnknownVoice.ps1 -MaleFile male.wav -FemaleFile fem.wav -Dread 1.4 -Wide 0.8 -KeepStems
 
 .NOTES
     ASCII-only on purpose. Windows PowerShell 5.1 reads BOM-less .ps1 as ANSI,
@@ -35,7 +36,7 @@ param(
 
     [string]$OutFile = "unknown_chorus.wav",
 
-    # Global dread multiplier: 0.5 = subtle, 1.0 = base, 2.0 = cringe
+    # Global dread multiplier. Validated 0.1-3.0, useful range ~0.6-1.6.
     [ValidateRange(0.1, 3.0)]
     [double]$Dread = 1.0,
 
@@ -51,8 +52,7 @@ param(
     [ValidateRange(0.75, 1.0)]
     [double]$Drag = 0.92,
 
-    # Periodic distortion: a hard-overdriven sidechain gated by a slow LFO,
-    # mixed under the voice so it "breaks up" every few seconds. 0 = off.
+    # Periodic distortion: hard-overdriven sidechain gated by a slow LFO. 0 = off.
     [ValidateRange(0, 3)]
     [double]$Pulse = 1.0,
 
@@ -60,8 +60,7 @@ param(
     [ValidateRange(0, 3)]
     [double]$Warble = 1.0,
 
-    # Stereo width: pans the layers across L/R at mix time (gain-based, mono-safe).
-    # GHOST+LOW lean left, HIGH right, MID center. 0 = mono out.
+    # Stereo width: pans the layers across L/R at mix time (gain-based, mono-safe). 0 = mono out.
     [ValidateRange(0, 1)]
     [double]$Wide = 0.6,
 
@@ -73,15 +72,13 @@ param(
     [ValidateRange(0, 3)]
     [double]$Crush = 0.0,
 
-    # Reverse-reverb pre-swell: a ghost of each phrase swells in before it speaks.
-    # Delays the onset by the swell length. 0 = off.
-    [ValidateRange(0, 3)]
-    [double]$Preverb = 0.0,
-
-    # Occasional reverb: wet room gated by a slow LFO so the space swells in and
-    # out instead of washing constantly. 0 = fully dry.
+    # Occasional reverb: wet room gated by a slow LFO so space comes and goes. 0 = dry.
     [ValidateRange(0, 3)]
     [double]$Reverb = 1.0,
+
+    # Reverse-reverb pre-swell: a ghost of each phrase swells in before it speaks. 0 = off.
+    [ValidateRange(0, 3)]
+    [double]$Preverb = 0.0,
 
     # Keep intermediate layers in _stems for manual inspection
     [switch]$KeepStems,
@@ -100,11 +97,15 @@ $ErrorActionPreference = "Stop"
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
 
 # ---------------------------------------------------------------- checks
-# ffmpeg: prefer the copy bundled next to this script, then PATH.
+# ffmpeg: prefer a bundled copy (repo-root\ffmpeg\bin or next to script), then PATH.
 if (-not $PSBoundParameters.ContainsKey('FfmpegPath')) {
-    $bundled = Join-Path $scriptDir 'ffmpeg\bin\ffmpeg.exe'
+    $cands = @(
+        (Join-Path $scriptDir '..\ffmpeg\bin\ffmpeg.exe'),
+        (Join-Path $scriptDir 'ffmpeg\bin\ffmpeg.exe')
+    )
+    $found = $cands | Where-Object { Test-Path $_ } | Select-Object -First 1
     $FfmpegPath =
-        if (Test-Path $bundled)                         { $bundled }
+        if ($found)                                     { $found }
         elseif (Get-Command ffmpeg -ErrorAction Ignore) { 'ffmpeg' }
         else { throw 'ffmpeg not found (no bundled copy, not on PATH)' }
 }
@@ -156,7 +157,7 @@ Write-Host "[1/5] Normalizing input..." -ForegroundColor Cyan
 $male   = ConvertTo-Stem -Src $MaleFile   -Name "src_male"
 $female = ConvertTo-Stem -Src $FemaleFile -Name "src_female"
 
-# ------------------------------------------------- params from $Dread
+# ------------------------------------------------- params from knobs
 # Speeds are clamped: past ~0.6..1.6 the tempo-restore ratio explodes and the
 # formant shift degrades into aliasing artifacts instead of dread.
 $lowSpeed   = [math]::Max(0.6,  [math]::Round(1 - (0.18 * $Dread), 3))  # 0.82 @ Dread=1
@@ -172,8 +173,6 @@ $padHigh    = [math]::Round(0.11 * $Dread, 3)
 $padGhost   = [math]::Round(0.04 * $Dread, 3)
 
 # --- fem highlight + chorus grit ---
-# gain -n -X: less-negative = louder. HIGH is the recognizably-female whisper,
-# so it gets the full boost; GHOST reads more male, so only a partial lift.
 $highLevel  = [math]::Round(-12 + $FemBoost, 1)          # -8.0 @ FemBoost=4
 $ghostLevel = [math]::Round(-9  + ($FemBoost * 0.6), 1)  # -6.6 @ FemBoost=4
 $gritDrive  = [math]::Round(6 * $Grit, 1)                # 6.0  @ Grit=1
@@ -192,10 +191,10 @@ $gHigh  = Get-PanGain ( 0.70 * $Wide)
 $gGhost = Get-PanGain (-0.85 * $Wide)
 
 # sub-bass rumble + bitcrush
-$rumbleLevel = [math]::Round([math]::Min(-4, -20 + (4 * $Rumble)), 1)  # -16 @1, caps at -4 (Rumble>=4) so the sub never clips or buries the voice
-$crushRate   = [int]([math]::Max(3000, 9000 - (2000 * $Crush)))  # 7000 @1, 3000 @3 (lower = grungier)
+$rumbleLevel = [math]::Round([math]::Min(-4, -20 + (4 * $Rumble)), 1)  # -16 @1, caps at -4
+$crushRate   = [int]([math]::Max(3000, 9000 - (2000 * $Crush)))        # 7000 @1, 3000 @3
 $crushLevel  = [math]::Round(-18 + (4 * $Crush), 1)      # -14 @ Crush=1
-$preverbAmt  = [int]([math]::Min(90, 40 + (15 * $Preverb)))  # reverberance 55 @1 .. 85 @3 (longer = bigger swell)
+$preverbAmt  = [int]([math]::Min(90, 40 + (15 * $Preverb)))  # reverberance 55 @1 .. 85 @3
 $verbRate    = 0.15                                       # LFO Hz -> room swells in ~every 6-7s
 $verbLevel   = [math]::Round([math]::Min(-2, -12 + (4 * $Reverb)), 1)  # -8 @1, caps at -2
 
@@ -258,10 +257,10 @@ Invoke-Sox @("-m", $L_low_p, $L_mid_p, $L_high_p, $L_ghost_p, $mix, "gain","-n",
 
 # ------------------------------------------------- 4. character
 Write-Host "[5/5] Applying character..." -ForegroundColor Cyan
-# Character stage (mono). Built dynamically so -Warble can inject a slow, deep
-# single-voice chorus = pitch drift ("can't hold a note"). tempo $Drag drawls
-# delivery without re-pitching. Two -t chorus voices = thicker "several throats";
-# gain-in/out pulled back to leave headroom so overdrive grits, not clips to noise.
+# Built dynamically so -Warble can inject a slow, deep single-voice chorus =
+# pitch drift ("can't hold a note"). tempo $Drag drawls delivery without
+# re-pitching. Two -t chorus voices = thicker "several throats"; gain-in/out
+# pulled back to leave headroom so overdrive grits, not clips to noise.
 $char = Join-Path $tmp "char.wav"
 $charArgs = @($mix, $char, "tempo","$Drag")
 if ($Warble -gt 0) {
@@ -276,7 +275,7 @@ $charArgs += @(
     "gain","-n","-3")
 Invoke-Sox $charArgs
 
-# Fold in the periodic-distortion sidechain (still mono) -> premaster.
+# Fold in the periodic-distortion sidechain (still stereo) -> premaster.
 $premaster = Join-Path $tmp "premaster.wav"
 if ($Pulse -gt 0) {
     # Hard-overdriven copy of the mix, gated by a slow deep tremolo so the
@@ -293,7 +292,7 @@ if ($Pulse -gt 0) {
     Copy-Item $char $premaster -Force
 }
 
-# --- sub-bass + bitcrush beds (mono, folded in before the stereo spread) ---
+# --- sub-bass + bitcrush + occasional reverb beds, folded in before the spread ---
 $mono = $premaster
 
 if ($Rumble -gt 0) {
@@ -340,8 +339,8 @@ if ($Reverb -gt 0) {
 }
 
 # Final. The stereo image was built at mix time by panning the layers, so the
-# whole character chain has already run in stereo (reverb/chorus add extra width).
-# Wide=0 leaves every layer centered; collapse that dual-mono back to true mono.
+# whole chain has already run in stereo. Wide=0 leaves every layer centered;
+# collapse that dual-mono back to true mono.
 if ($Wide -gt 0) {
     Invoke-Sox @($mono, $OutFile, "gain","-n","-1")
 } else {
@@ -350,7 +349,6 @@ if ($Wide -gt 0) {
 
 # Reverse-reverb pre-swell (post-process on the finished output). reverse -> reverb
 # -> reverse flips each reverb tail so it LEADS the onset instead of trailing it.
-# Default reverb keeps the dry voice, so this only adds the anticipatory swell.
 if ($Preverb -gt 0) {
     Write-Host "[+] Reverse-reverb pre-swell..." -ForegroundColor Cyan
     $preOut = Join-Path $tmp "preverb.wav"
