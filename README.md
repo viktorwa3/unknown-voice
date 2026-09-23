@@ -1,105 +1,38 @@
-# unknown-voice
+# Unknown voice — FX chain (Track A, FX stage)
 
-Turn two ElevenLabs takes (one male, one female, same phrase) into a layered
-"The Unknown" (Dead by Daylight) chorus voice. Cross-platform: PowerShell on
-Windows, bash on Linux/WSL/mac.
+Offline pedalboard chain that turns a dry voice take into an "Unknown"-style monster voice.
+Generic monster-mimic recipe, not a reverse-engineered Behaviour preset. Personal/fan use only.
 
-## Pipeline
-
+## Setup
+```powershell
+python -m venv .venv; .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+# ffmpeg on PATH only needed for m4a/mp3 input: winget install Gyan.FFmpeg
 ```
-ElevenLabs (male take + female take, identical text)
-        |  export mp3/wav
-     ffmpeg   normalize -> 44.1kHz / 16-bit / mono
-        |
-      SoX     4 layers -> desync (pad) -> pan mix (stereo) -> character
-              -> pulse / rumble / crush / gated reverb beds -> preverb
-        |
-   unknown_chorus.wav  (stereo unless --wide 0)
-```
-
-Four layers do the work:
-
-| Layer | Source | What it does |
-|-------|--------|--------------|
-| LOW   | male   | guttural bottom, formants shifted down (`speed`+`tempo`), overdrive |
-| MID   | male   | dry base, keeps words intelligible |
-| HIGH  | female | cracked whisper on top, formants up, highpass |
-| GHOST | female | female dragged DOWN into male register — ear hears "male", formants are female, brain can't resolve it into a person. The trick. |
 
 ## Usage
-
-### Linux / WSL / mac
-
-```bash
-sudo apt install sox libsox-fmt-all ffmpeg   # deps
-./scripts/build-unknown-voice.sh -m male.mp3 -f fem.mp3 -d 1.4 --keep-stems
-```
-
-Autodetects `sox`/`ffmpeg` (override with `--sox`/`--ffmpeg` or `SOX_BIN`/`FFMPEG_BIN`).
-
-### Windows (PowerShell 5.1+)
-
 ```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\Build-UnknownVoice.ps1 `
-    -MaleFile male.mp3 -FemaleFile fem.mp3 -Dread 1.4 -KeepStems
+python unknown_fx.py raw\take01_normal.wav -o raw\out -p all      # all presets
+python unknown_fx.py raw\take02_whisper.wav -p deep mimic --seed 7 # selected presets, other stutter pattern
+.\run_all.bat                                                     # everything in raw\
 ```
+Output: `raw\out\<take>__<preset>.wav`, 48 kHz mono 24-bit, peak -1 dBFS.
 
-SoX on Windows can't read mp3 (no libmad) — the script routes through ffmpeg
-regardless, so mp3 input is fine.
+## Recording spec (put into `raw\`)
+| File | Content | Length |
+|---|---|---|
+| take01_normal.wav | normal calm speech | 10–15 s |
+| take02_whisper.wav | low raspy whisper | 10–15 s |
+| take03_growl.wav | throat growl / vocal fry | 5–10 s |
+| take04_scream.wav | scream or laugh | 3–5 s |
+WAV 48 kHz mono, no mic noise suppression/AGC, peaks around -6 dB, 1 s silence at start, short phrases with pauses.
 
-## Options
+## Presets
+| Preset | Idea |
+|---|---|
+| base | baseline: -5 st low layer + drive, +7 st chorus layer ×0.35, stutter 6×60 ms, reverse reverb ×0.4, 10-bit |
+| deep | -7 st, more drive, ring mod 35 Hz, 9-bit |
+| mimic | 45% dry voice kept, +12 st layer, more stutter — "almost human" |
+| glitch | ring mod 70 Hz, 14 stutters × 40 ms, 8-bit |
 
-Both scripts expose the same knobs (bash long-flags mirror the PowerShell params).
-
-| bash | PowerShell | range (default) | meaning |
-|------|-----------|-----------------|---------|
-| `-m`, `--male` | `-MaleFile` | — (required) | male source (mp3/wav) |
-| `-f`, `--female` | `-FemaleFile` | — (required) | female source (mp3/wav) |
-| `-o`, `--out` | `-OutFile` | `unknown_chorus.wav` | output wav |
-| `-d`, `--dread` | `-Dread` | 0.1–3.0 (1.0) | overall intensity; useful 0.6–1.6 (speeds clamp past that) |
-| `--femboost` | `-FemBoost` | 0–12 dB (4) | push the female layers (HIGH whisper + GHOST) forward |
-| `--grit` | `-Grit` | 0–3 (1.0) | distortion baked into the character stage |
-| `--drag` | `-Drag` | 0.75–1.0 (0.92) | drawl the delivery via `tempo` (keeps pitch) |
-| `--pulse` | `-Pulse` | 0–3 (1.0), 0=off | periodic distortion; gated sidechain that "breaks up" |
-| `--warble` | `-Warble` | 0–3 (1.0), 0=off | slow deep chorus = pitch drift ("can't hold a note") |
-| `--wide` | `-Wide` | 0–1 (0.6), 0=mono | stereo width by panning layers (mono-compatible) |
-| `--rumble` | `-Rumble` | 0–6 (1.0), 0=off | sub-bass bed derived from the voice |
-| `--crush` | `-Crush` | 0–3 (0.0/off) | 8-bit + samplerate-decimated "broken transmission" texture |
-| `--reverb` | `-Reverb` | 0–3 (1.0), 0=dry | occasional room: wet reverb gated by a slow LFO |
-| `--preverb` | `-Preverb` | 0–3 (0.0/off) | reverse-reverb pre-swell ("about to speak"); delays onset |
-| `--keep-stems` | `-KeepStems` | off | keep intermediate layers in `_stems/` |
-| `--sox`, `--ffmpeg` | `-SoxPath`, `-FfmpegPath` | autodetect | override binary locations |
-
-**Input phrases must be textually identical** across male/female, or the layers
-drift into two different mumbling entities instead of one.
-
-## Style presets
-
-Render five contrasting styles side by side into `versions/` to pick a base:
-
-```bash
-./scripts/test-styles.sh                 # Linux/WSL/mac
-```
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\Test-Styles.ps1   # Windows
-```
-
-Presets: `signature` (balanced), `buried` (deep/slow/sub), `swarm` (wide/warbly/
-female-forward), `broken` (bitcrush/glitch), `approaching` (spacious pre-swell).
-See `test-lines.txt` for uncanny phrases tuned to survive the formant shifting.
-
-## Dev
-
-```bash
-make check    # lint + test
-make lint     # shellcheck
-make test     # bats (stubbed sox/ffmpeg — no real audio needed)
-```
-
-Tests stub `sox` and `ffmpeg` (see `tests/fixtures/`) so the full pipeline logic
-runs without the real binaries or any audio files.
-
-## Notes
-
-See `MEMORY.md` for the full flow, known bugs, and the `pitch` vs `speed+tempo`
-distinction (why `pitch` alone just sounds like a man with a cold).
+Knobs live in `PRESETS` at the top of `unknown_fx.py`. Pitch below -7 st starts producing artifacts.
