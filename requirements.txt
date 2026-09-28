@@ -1,3 +1,9 @@
 pedalboard>=0.9
 soundfile
 numpy
+pyworld>=0.3.5
+noisereduce
+setuptools<81  # pyworld 0.3.5 imports pkg_resources
+sounddevice>=0.5  # live: audio I/O (PortAudio bundled on Windows)
+pynput            # live: global hotkeys
+dearpygui>=2.0     # live UI
