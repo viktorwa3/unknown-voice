@@ -107,6 +107,14 @@ P("unknown/two of me", "You and a slightly wrong copy of you, a fifth apart, dri
   harmony__snap=False, harmony__formant=1.15, mod__jitter_st=0.4, mod__jitter_hz=1.5, mix__switch=0.3, mix__rate_hz=0.8,
   mix__stutter_ps=0.2)
 
+P("unknown/two of me clear", "One clean voice that keeps melting between you (male) and a female version. No glitches, no FX.",
+  glide__weight=1.0, glide__low_hz=90, glide__high_hz=215, glide__formant_lo=1.0, glide__formant_hi=1.22,
+  glide__breath_lo=0.04, glide__breath_hi=0.03, glide__rate_hz=0.35, glide__jump=0.75, glide__drive_db=0, glide__presence_db=1,
+  glide__lpf_hz=14000, mix__switch=0.0, mix__stutter_ps=0)
+P("unknown/two of me duet", "You and a clean female voice taking turns, smooth crossfades. No glitches, no FX.",
+  human__weight=1.0, fem__weight=1.8, fem__target_hz=210, fem__snap=False, fem__formant=1.2, fem__breath=0.05,
+  fem__comb_mix=0, fem__bits=16, fem__chorus_mix=0, fem__hpf_hz=120, fem__presence_db=2, mix__rate_hz=0.4, mix__switch=0.85,
+  mix__stutter_ps=0)
 # ------------------------------------------------------------------ monsters
 P("monsters/demon lord", "Hell's middle management: very low demon with an infernal chord under it and a huge cave.",
   demon__weight=1.3, harmony__weight=0.6, human__weight=0.1, demon__target_hz=38, harmony__int1_st=-12, harmony__lvl1=1.0,
@@ -304,6 +312,8 @@ def calibrate(presets, wav):
         data.update(ov); print(f"  {pid:<34} out_db {ov['master.out_db']:+5.1f}")
 
 CAL = {  # master.out_db per preset, from --calibrate raw\\take01_normal.wav (TARGET_DB); applied by build()
+    'unknown/two of me duet': -0.9,
+    'unknown/two of me clear': -1.3,
     'choir/angelic': 3.2,
     'choir/barbershop': 2.9,
     'choir/children choir': 3.8,
