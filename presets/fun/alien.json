@@ -4,7 +4,7 @@
  },
  "child.weight": 0.6,
  "glide.weight": 0.5,
- "master.out_db": 5.4,
+ "master.out_db": 4.2,
  "mix.rate_hz": 1.0,
  "mix.stutter_ps": 0.1,
  "mix.switch": 0.4,

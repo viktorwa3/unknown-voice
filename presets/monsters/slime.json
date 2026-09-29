@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "desc": "Gloopy and liquid: sliding pitch, swirling phaser."
+ },
+ "glide.formant_hi": 1.0,
+ "glide.high_hz": 160,
+ "glide.low_hz": 60,
+ "glide.rate_hz": 1.5,
+ "glide.weight": 1.2,
+ "master.out_db": 0.7,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.2,
+ "mod.formant_lfo": 0.25,
+ "mod.formant_lfo_hz": 2.5,
+ "mod.phaser_fb": 0.7,
+ "mod.phaser_mix": 0.7,
+ "mod.phaser_rate": 1.2,
+ "whisper.weight": 0.3
+}

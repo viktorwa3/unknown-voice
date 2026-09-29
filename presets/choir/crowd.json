@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "desc": "Stadium crowd saying the same thing."
+ },
+ "choir.detune_cents": 30,
+ "choir.level_var": 0.6,
+ "choir.mix": 1.0,
+ "choir.spread_ms": 70,
+ "choir.voices": 8,
+ "human.weight": 1.0,
+ "master.out_db": 2.7,
+ "mix.stutter_ps": 0,
+ "space.echo_mix": 0.15,
+ "space.echo_ms": 500,
+ "space.reverb_mix": 0.3,
+ "space.room": 0.95
+}

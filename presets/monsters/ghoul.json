@@ -5,7 +5,7 @@
  "child.weight": 0.3,
  "demon.weight": 0.5,
  "glitch.reverse_ps": 0.3,
- "master.out_db": 5.1,
+ "master.out_db": 5.4,
  "mix.rate_hz": 1.2,
  "mix.stutter_ps": 0.2,
  "mix.switch": 0.6,

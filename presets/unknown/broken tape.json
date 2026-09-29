@@ -10,7 +10,7 @@
  "glitch.reverse_ms": 180,
  "glitch.reverse_ps": 0.5,
  "human.weight": 0.6,
- "master.out_db": 3.5,
+ "master.out_db": 3.6,
  "mix.rate_hz": 1.2,
  "mix.stutter_ms": 70,
  "mix.stutter_ps": 0.6,

@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "desc": "Wet, crooked old voice with wobbling formants."
+ },
+ "child.formant": 1.2,
+ "child.target_hz": 260,
+ "child.weight": 0.7,
+ "human.weight": 0.3,
+ "master.out_db": 4.9,
+ "mix.stutter_ps": 0.15,
+ "mix.switch": 0.4,
+ "mod.formant_lfo": 0.2,
+ "mod.formant_lfo_hz": 1.2,
+ "mod.jitter_hz": 4,
+ "mod.jitter_st": 0.8,
+ "mod.phaser_mix": 0.4,
+ "mod.phaser_rate": 0.4,
+ "whisper.weight": 0.6
+}

@@ -1,0 +1,24 @@
+{
+ "_meta": {
+  "desc": "Low male chant: octave down drone, dark room."
+ },
+ "choir.detune_cents": 8,
+ "choir.mix": 0.6,
+ "choir.spread_ms": 20,
+ "choir.voices": 4,
+ "eq.high_db": -3,
+ "harmony.formant": 0.88,
+ "harmony.int1_st": -12,
+ "harmony.int2_st": -5,
+ "harmony.lvl1": 1.0,
+ "harmony.lvl2": 0.4,
+ "harmony.lvl3": 0,
+ "harmony.weight": 1.1,
+ "human.weight": 0.5,
+ "master.out_db": 5.0,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "space.damping": 0.7,
+ "space.reverb_mix": 0.5,
+ "space.room": 0.95
+}

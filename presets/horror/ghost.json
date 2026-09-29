@@ -4,7 +4,7 @@
  },
  "eq.low_db": -6,
  "fem.weight": 0.5,
- "master.out_db": 5.3,
+ "master.out_db": 5.0,
  "mix.stutter_ps": 0,
  "mix.switch": 0.3,
  "mod.tremolo": 0.2,

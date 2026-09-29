@@ -6,7 +6,7 @@
  "child.formant": 1.6,
  "child.target_hz": 450,
  "child.weight": 1.4,
- "master.out_db": -2.0,
+ "master.out_db": -2.1,
  "mix.stutter_ps": 0,
  "mix.switch": 0.0
 }

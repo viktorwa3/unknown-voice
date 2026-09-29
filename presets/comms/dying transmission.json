@@ -6,7 +6,7 @@
  "glitch.freeze_ms": 300,
  "glitch.freeze_ps": 0.4,
  "human.weight": 0.7,
- "master.out_db": -4.8,
+ "master.out_db": -5.0,
  "mix.radio": 1.0,
  "mix.stutter_ps": 0.3,
  "mix.switch": 0.5,

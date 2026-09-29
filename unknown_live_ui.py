@@ -1,12 +1,12 @@
 """
-unknown_live_ui.py v2.1 — GUI for the live voice engine (unknown_live.py), Dear PyGui.
+unknown_live_ui.py v2.2 — GUI for the live voice engine (unknown_live.py), Dear PyGui.
 
   * Preset browser: folder tree (presets\\<folder>\\<name>.json, any depth), search (name + description),
     favorites (star [*]) with a "favorites only" filter; click = load, all sliders jump to the preset
   * Top bar: current preset + description, prev / next / random, star, Save as "folder/name", Delete, Revert
   * Favorites bar: first 9 favorites on Ctrl+Alt+1..9 (global hotkeys); Ctrl+Alt+0 bypass,
     Ctrl+Alt+Left/Right prev/next, Ctrl+Alt+R random
-  * Tabs: Voices (one sub-tab per voice), Mix, FX (Mod, Glitch, Space, Radio), Gate & Master
+  * Tabs: Voices (one sub-tab per voice, incl. Harmony), Mix, FX (Choir, Mod, Glitch, Space, Radio), Gate & Master
   * Right column (always visible): START/STOP, mic / output / monitor, FFT, buffer; then meters (in / out / gate / freeze), live voice mix bars + plot, CPU / xruns / latency / pitch
   * Remembers devices, favorites, last preset and your last slider state in live_settings.json
 
@@ -22,12 +22,13 @@ import unknown_live as L
 
 SETTINGS = os.path.join(L.HERE, "live_settings.json")
 VOICE_COLORS = dict(beast=(214, 69, 65), fem=(232, 121, 249), glide=(250, 176, 5), robot=(56, 189, 248),
-                    whisper=(148, 163, 184), demon=(153, 27, 27), child=(253, 186, 116), human=(74, 222, 128))
+                    whisper=(148, 163, 184), demon=(153, 27, 27), child=(253, 186, 116), harmony=(129, 140, 248),
+                    human=(74, 222, 128))
 ACCENT = (250, 176, 5); MUTED = (148, 163, 184); GOOD = (163, 230, 53); BAD = (248, 113, 113)
 HIST = 150
 # layout of the parameter area: (top tab, [sub-tabs = SPEC tab names])
 LAYOUT = [("Voices", [v.capitalize() for v in L.VOICES]), ("Mix", ["Mix"]),
-          ("FX", ["Mod", "Glitch", "Space", "Radio"]), ("Gate & Master", ["Gate", "Master"])]
+          ("FX", ["Choir", "Mod", "Glitch", "Space", "Radio"]), ("Gate & Master", ["Gate", "Master"])]
 TAB_HELP = {
     "Mix": "How the voices are blended over time. Morph speed = how often the random mix changes; Hard switching = "
            "soft crossfades (0) vs one voice at a time (1). Radio amount crossfades into FX > Radio.",
@@ -39,6 +40,11 @@ TAB_HELP = {
     "Demon": "Very low, very distorted. Great under other voices.",
     "Child": "High and small. Chipmunk at extreme settings.",
     "Human": "Your own (clean) voice inside the mix.",
+    "Harmony": "Up to 3 transposed copies of your voice (a small choir / harmonizer). Intervals in semitones: -12 = octave "
+               "down, 7 = fifth up, 12 = octave up; level 0 = copy off. 'Fixed root' makes every syllable sing that chord on one "
+               "note (robot / drone choir). Formant difference makes the copies sound like different people.",
+    "Choir": "Ensemble: turns the whole mix into N singers, each slightly late (timing spread), slightly out of tune (detune, "
+             "drifting at 'drift speed') and breathing in level. Combine with Harmony for a real choir, with Whisper for a crowd.",
     "Mod": "Vibrato / jitter move the pitch of all shifted voices; formant wobble moves their formants; tremolo and "
            "phaser act on the whole mix.",
     "Glitch": "Reverse chunks play the last bit of speech backwards; freeze holds one spectrum (a vowel); master "

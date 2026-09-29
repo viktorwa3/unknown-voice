@@ -1,0 +1,21 @@
+{
+ "_meta": {
+  "desc": "Close four-part harmony: third, fifth and octave over your voice."
+ },
+ "choir.detune_cents": 6,
+ "choir.mix": 0.3,
+ "choir.voices": 3,
+ "harmony.formant_spread": 0.1,
+ "harmony.int1_st": 4,
+ "harmony.int2_st": 7,
+ "harmony.int3_st": -12,
+ "harmony.lvl2": 0.8,
+ "harmony.lvl3": 0.6,
+ "harmony.weight": 1.0,
+ "human.weight": 0.8,
+ "master.out_db": 2.9,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "space.reverb_mix": 0.15,
+ "space.room": 0.5
+}

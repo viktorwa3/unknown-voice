@@ -6,7 +6,7 @@
  "fem.weight": 1.2,
  "glitch.crush_bits": 12,
  "human.weight": 0.1,
- "master.out_db": 1.7,
+ "master.out_db": 1.1,
  "mix.rate_hz": 1.2,
  "mix.stutter_ps": 0.25,
  "mix.switch": 0.5,

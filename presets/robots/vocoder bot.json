@@ -4,7 +4,7 @@
  },
  "fem.chorus_mix": 0.5,
  "fem.weight": 0.5,
- "master.out_db": 2.3,
+ "master.out_db": 2.0,
  "mix.rate_hz": 0.5,
  "mix.stutter_ps": 0,
  "mix.switch": 0.1,

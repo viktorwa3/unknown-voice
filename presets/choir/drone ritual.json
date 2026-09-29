@@ -1,0 +1,26 @@
+{
+ "_meta": {
+  "desc": "Ritual drone on one low note; the words ride on top."
+ },
+ "choir.detune_cents": 10,
+ "choir.mix": 0.6,
+ "choir.voices": 6,
+ "harmony.flat": true,
+ "harmony.formant": 0.85,
+ "harmony.int1_st": 0,
+ "harmony.int2_st": 7,
+ "harmony.int3_st": 12,
+ "harmony.lvl3": 0.4,
+ "harmony.root_hz": 65,
+ "harmony.weight": 1.2,
+ "human.weight": 0.3,
+ "master.out_db": 6.9,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.1,
+ "mod.tremolo": 0.15,
+ "mod.tremolo_hz": 0.5,
+ "space.damping": 0.6,
+ "space.reverb_mix": 0.5,
+ "space.room": 0.95,
+ "whisper.weight": 0.5
+}

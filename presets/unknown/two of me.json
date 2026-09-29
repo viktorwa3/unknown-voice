@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "desc": "You and a slightly wrong copy of you, a fifth apart, drifting."
+ },
+ "harmony.formant": 1.15,
+ "harmony.int1_st": 7,
+ "harmony.lvl1": 1.0,
+ "harmony.lvl2": 0,
+ "harmony.lvl3": 0,
+ "harmony.snap": false,
+ "harmony.weight": 0.9,
+ "human.weight": 1.0,
+ "master.out_db": 1.6,
+ "mix.rate_hz": 0.8,
+ "mix.stutter_ps": 0.2,
+ "mix.switch": 0.3,
+ "mod.jitter_hz": 1.5,
+ "mod.jitter_st": 0.4
+}

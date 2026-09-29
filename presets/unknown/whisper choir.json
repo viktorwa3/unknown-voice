@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "desc": "A crowd of whispers, some of them backwards."
+ },
+ "beast.weight": 0.3,
+ "choir.detune_cents": 30,
+ "choir.level_var": 0.7,
+ "choir.mix": 0.9,
+ "choir.spread_ms": 60,
+ "choir.voices": 8,
+ "glitch.reverse_ms": 200,
+ "glitch.reverse_ps": 0.4,
+ "human.weight": 0.1,
+ "master.out_db": 5.8,
+ "mix.stutter_ps": 0.1,
+ "mix.switch": 0.4,
+ "space.reverb_mix": 0.2,
+ "whisper.weight": 1.3
+}

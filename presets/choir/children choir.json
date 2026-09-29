@@ -1,0 +1,21 @@
+{
+ "_meta": {
+  "desc": "Children's choir in a school hall."
+ },
+ "child.weight": 1.0,
+ "choir.detune_cents": 16,
+ "choir.mix": 0.8,
+ "choir.spread_ms": 35,
+ "choir.voices": 8,
+ "harmony.formant": 1.4,
+ "harmony.int1_st": 12,
+ "harmony.lvl1": 1.0,
+ "harmony.lvl2": 0,
+ "harmony.lvl3": 0,
+ "harmony.weight": 0.7,
+ "master.out_db": 3.8,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "space.reverb_mix": 0.3,
+ "space.room": 0.7
+}

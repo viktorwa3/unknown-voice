@@ -6,7 +6,7 @@
  "beast.drive_db": 16,
  "beast.weight": 1.3,
  "demon.weight": 0.5,
- "master.out_db": 4.1,
+ "master.out_db": 4.4,
  "mix.rate_hz": 0.9,
  "mix.stutter_ps": 0.2,
  "mix.switch": 0.5,

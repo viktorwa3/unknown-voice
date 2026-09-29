@@ -8,7 +8,7 @@
  "eq.mid_db": 4,
  "eq.mid_hz": 1800,
  "human.weight": 0.3,
- "master.out_db": -0.5,
+ "master.out_db": -0.9,
  "mix.stutter_ps": 0.1,
  "mix.switch": 0.2,
  "mod.jitter_hz": 6,

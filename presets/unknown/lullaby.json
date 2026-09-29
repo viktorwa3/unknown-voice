@@ -4,7 +4,7 @@
  },
  "child.weight": 1.0,
  "fem.weight": 0.4,
- "master.out_db": 4.4,
+ "master.out_db": 3.9,
  "mix.rate_hz": 0.5,
  "mix.stutter_ps": 0.05,
  "mix.switch": 0.2,

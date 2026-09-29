@@ -1,0 +1,23 @@
+{
+ "_meta": {
+  "desc": "Minor-key choir of low voices with a demon underneath."
+ },
+ "choir.detune_cents": 20,
+ "choir.mix": 0.7,
+ "choir.voices": 8,
+ "demon.weight": 0.4,
+ "harmony.formant": 0.9,
+ "harmony.int1_st": -12,
+ "harmony.int2_st": 3,
+ "harmony.int3_st": 7,
+ "harmony.lvl2": 0.7,
+ "harmony.lvl3": 0.6,
+ "harmony.weight": 1.1,
+ "human.weight": 0.3,
+ "master.out_db": 5.8,
+ "mix.rate_hz": 0.4,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.2,
+ "space.reverb_mix": 0.4,
+ "space.room": 0.9
+}

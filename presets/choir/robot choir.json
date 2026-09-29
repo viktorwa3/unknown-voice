@@ -1,0 +1,23 @@
+{
+ "_meta": {
+  "desc": "Machines singing a fixed chord on every syllable."
+ },
+ "choir.detune_cents": 6,
+ "choir.mix": 0.4,
+ "choir.voices": 4,
+ "glitch.crush_bits": 12,
+ "harmony.breath": 0,
+ "harmony.flat": true,
+ "harmony.int1_st": 0,
+ "harmony.int2_st": 4,
+ "harmony.int3_st": 7,
+ "harmony.lvl2": 0.8,
+ "harmony.lvl3": 0.8,
+ "harmony.root_hz": 131,
+ "harmony.weight": 1.2,
+ "master.out_db": 2.6,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "robot.note_hz": 262,
+ "robot.weight": 0.5
+}

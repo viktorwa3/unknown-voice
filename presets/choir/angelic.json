@@ -1,0 +1,27 @@
+{
+ "_meta": {
+  "desc": "Bright heavenly voices an octave and a twelfth up."
+ },
+ "choir.detune_cents": 10,
+ "choir.mix": 0.7,
+ "choir.voices": 6,
+ "eq.high_db": 2,
+ "fem.bits": 16,
+ "fem.comb_mix": 0,
+ "fem.snap": false,
+ "fem.weight": 0.5,
+ "harmony.formant": 1.25,
+ "harmony.int1_st": 12,
+ "harmony.int2_st": 19,
+ "harmony.int3_st": 0,
+ "harmony.lvl1": 1.0,
+ "harmony.lvl2": 0.5,
+ "harmony.lvl3": 0.3,
+ "harmony.weight": 1.0,
+ "master.out_db": 3.2,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "mod.vibrato_st": 0.15,
+ "space.reverb_mix": 0.5,
+ "space.room": 0.95
+}

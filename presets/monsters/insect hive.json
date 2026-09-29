@@ -1,0 +1,20 @@
+{
+ "_meta": {
+  "desc": "A swarm of buzzing little things talking in unison."
+ },
+ "child.target_hz": 420,
+ "child.weight": 0.8,
+ "choir.detune_cents": 35,
+ "choir.mix": 0.8,
+ "choir.spread_ms": 15,
+ "choir.voices": 8,
+ "master.out_db": 5.2,
+ "mix.stutter_ps": 0.1,
+ "mix.switch": 0.3,
+ "mod.tremolo": 0.6,
+ "mod.tremolo_hz": 18,
+ "robot.note_hz": 440,
+ "robot.ring_hz": 220,
+ "robot.ring_mix": 0.7,
+ "robot.weight": 0.6
+}

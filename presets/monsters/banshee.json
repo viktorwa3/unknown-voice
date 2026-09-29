@@ -1,0 +1,23 @@
+{
+ "_meta": {
+  "desc": "Wailing spirit: high harmonies, long echo."
+ },
+ "child.weight": 0.6,
+ "fem.weight": 0.8,
+ "harmony.formant": 1.25,
+ "harmony.int1_st": 12,
+ "harmony.int2_st": 19,
+ "harmony.lvl2": 0.5,
+ "harmony.lvl3": 0,
+ "harmony.weight": 0.7,
+ "master.out_db": 5.5,
+ "mix.stutter_ps": 0.05,
+ "mix.switch": 0.3,
+ "mod.vibrato_hz": 5,
+ "mod.vibrato_st": 0.6,
+ "space.echo_fb": 0.5,
+ "space.echo_mix": 0.3,
+ "space.echo_ms": 420,
+ "space.reverb_mix": 0.35,
+ "space.room": 0.9
+}

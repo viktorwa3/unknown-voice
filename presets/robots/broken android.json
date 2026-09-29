@@ -7,7 +7,7 @@
  "glitch.downsample": 2,
  "glitch.freeze_ps": 0.3,
  "human.weight": 0.4,
- "master.out_db": -0.2,
+ "master.out_db": -0.3,
  "mix.rate_hz": 3.0,
  "mix.stutter_ms": 40,
  "mix.stutter_ps": 0.8,

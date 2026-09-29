@@ -11,7 +11,7 @@
  "fem.target_hz": 200,
  "fem.weight": 1.0,
  "human.weight": 0.2,
- "master.out_db": 0.0,
+ "master.out_db": -0.0,
  "mix.stutter_ps": 0,
  "mix.switch": 0.0,
  "space.reverb_mix": 0.08

@@ -5,7 +5,7 @@
  "eq.high_db": -3,
  "fem.weight": 0.4,
  "glide.weight": 0.6,
- "master.out_db": 6.1,
+ "master.out_db": 6.4,
  "mix.rate_hz": 0.6,
  "mix.stutter_ps": 0.1,
  "mix.switch": 0.4,

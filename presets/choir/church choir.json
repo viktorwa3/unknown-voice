@@ -1,0 +1,24 @@
+{
+ "_meta": {
+  "desc": "Big mixed choir: octave below, you, a fifth above, in a cathedral."
+ },
+ "choir.detune_cents": 12,
+ "choir.mix": 0.7,
+ "choir.spread_ms": 30,
+ "choir.voices": 6,
+ "harmony.int1_st": -12,
+ "harmony.int2_st": 0,
+ "harmony.int3_st": 7,
+ "harmony.lvl1": 0.8,
+ "harmony.lvl2": 0.7,
+ "harmony.lvl3": 0.6,
+ "harmony.weight": 1.0,
+ "human.weight": 0.6,
+ "master.out_db": 3.7,
+ "mix.rate_hz": 0.3,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "space.damping": 0.4,
+ "space.reverb_mix": 0.45,
+ "space.room": 0.92
+}

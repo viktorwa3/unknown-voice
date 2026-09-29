@@ -6,7 +6,7 @@
  "child.weight": 0.4,
  "eq.mid_db": 5,
  "eq.mid_hz": 2500,
- "master.out_db": 3.5,
+ "master.out_db": 3.2,
  "mix.stutter_ps": 0.3,
  "mix.switch": 0.5,
  "space.echo_fb": 0.6,

@@ -1,16 +1,24 @@
 {
  "_meta": {
-  "desc": "Hell's middle management. Very low, huge room."
+  "desc": "Hell's middle management: very low demon with an infernal chord under it and a huge cave."
  },
- "beast.weight": 0.6,
  "demon.target_hz": 38,
  "demon.weight": 1.3,
  "eq.low_db": 2,
+ "harmony.formant": 0.7,
+ "harmony.int1_st": -12,
+ "harmony.int2_st": -6,
+ "harmony.lvl1": 1.0,
+ "harmony.lvl2": 0.6,
+ "harmony.lvl3": 0,
+ "harmony.weight": 0.6,
  "human.weight": 0.1,
- "master.out_db": 3.4,
+ "master.out_db": 4.5,
  "mix.rate_hz": 0.5,
  "mix.stutter_ps": 0,
  "mix.switch": 0.2,
- "space.reverb_mix": 0.25,
- "space.room": 0.7
+ "space.echo_mix": 0.12,
+ "space.echo_ms": 300,
+ "space.reverb_mix": 0.35,
+ "space.room": 0.9
 }

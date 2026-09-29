@@ -5,7 +5,7 @@
  "beast.weight": 0.6,
  "fem.weight": 0.6,
  "glide.weight": 1.2,
- "master.out_db": 1.1,
+ "master.out_db": 2.4,
  "mix.rate_hz": 2.5,
  "mix.stutter_ps": 0.5,
  "mix.switch": 0.7,

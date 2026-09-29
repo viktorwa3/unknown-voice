@@ -1,18 +1,26 @@
 {
  "_meta": {
-  "desc": "Female, child and glide voices blended into a soft hollow choir."
+  "desc": "A hollow little choir: female, child and an octave-down harmony, slowly drifting apart."
  },
- "child.weight": 0.8,
- "fem.chorus_mix": 0.5,
+ "child.weight": 0.6,
+ "choir.detune_cents": 18,
+ "choir.mix": 0.6,
+ "choir.voices": 6,
  "fem.weight": 0.9,
- "glide.weight": 0.6,
- "master.out_db": 4.6,
+ "harmony.formant": 1.1,
+ "harmony.int1_st": -12,
+ "harmony.int2_st": 0,
+ "harmony.int3_st": 12,
+ "harmony.lvl2": 0.6,
+ "harmony.lvl3": 0.3,
+ "harmony.weight": 0.9,
+ "master.out_db": 6.7,
  "mix.rate_hz": 0.5,
  "mix.stutter_ps": 0.1,
  "mix.switch": 0.1,
  "mod.vibrato_hz": 4.5,
- "mod.vibrato_st": 0.25,
- "space.reverb_mix": 0.25,
- "space.room": 0.8,
- "whisper.weight": 0.3
+ "mod.vibrato_st": 0.2,
+ "space.reverb_mix": 0.3,
+ "space.room": 0.85,
+ "whisper.weight": 0.2
 }

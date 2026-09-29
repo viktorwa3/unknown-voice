@@ -5,7 +5,7 @@
  "beast.weight": 1.0,
  "fem.weight": 1.0,
  "human.weight": 0.3,
- "master.out_db": 3.6,
+ "master.out_db": 3.3,
  "mix.rate_hz": 1.6,
  "mix.stutter_ms": 55,
  "mix.stutter_ps": 0.35,

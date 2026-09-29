@@ -8,7 +8,7 @@
  "glide.weight": 0.5,
  "glitch.freeze_ms": 700,
  "glitch.freeze_ps": 1.0,
- "master.out_db": 4.9,
+ "master.out_db": 5.6,
  "mix.rate_hz": 1.3,
  "mix.stutter_ps": 0.3,
  "mix.switch": 0.6,

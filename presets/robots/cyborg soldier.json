@@ -11,7 +11,7 @@
  "human.weight": 0.5,
  "master.comp_ratio": 5,
  "master.comp_thr": -26,
- "master.out_db": 2.7,
+ "master.out_db": 2.6,
  "mix.stutter_ps": 0,
  "mix.switch": 0.3,
  "robot.note_hz": 98,

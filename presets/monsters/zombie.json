@@ -8,7 +8,7 @@
  "beast.weight": 1.0,
  "eq.high_db": -4,
  "human.weight": 0.3,
- "master.out_db": 3.4,
+ "master.out_db": 4.2,
  "mix.stutter_ms": 90,
  "mix.stutter_ps": 0.4,
  "mix.switch": 0.4,

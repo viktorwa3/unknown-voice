@@ -1,0 +1,26 @@
+{
+ "_meta": {
+  "desc": "Everyone it ever mimicked, singing along: harmony stack + crowd + morphing voices."
+ },
+ "beast.weight": 0.6,
+ "choir.detune_cents": 22,
+ "choir.mix": 0.7,
+ "choir.spread_ms": 35,
+ "choir.voices": 7,
+ "fem.weight": 0.7,
+ "harmony.formant_spread": 0.12,
+ "harmony.int1_st": -12,
+ "harmony.int2_st": 3,
+ "harmony.int3_st": 7,
+ "harmony.lvl2": 0.6,
+ "harmony.lvl3": 0.5,
+ "harmony.weight": 1.0,
+ "human.weight": 0.3,
+ "master.out_db": 7.3,
+ "mix.rate_hz": 0.9,
+ "mix.stutter_ps": 0.25,
+ "mix.switch": 0.5,
+ "space.reverb_mix": 0.25,
+ "space.room": 0.8,
+ "whisper.weight": 0.4
+}

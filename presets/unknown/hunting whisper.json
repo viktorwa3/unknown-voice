@@ -9,7 +9,7 @@
  "glitch.freeze_ps": 0.3,
  "glitch.reverse_ms": 220,
  "glitch.reverse_ps": 1.0,
- "master.out_db": 2.9,
+ "master.out_db": 2.2,
  "mix.rate_hz": 0.9,
  "mix.stutter_ps": 0.3,
  "mix.switch": 0.5,

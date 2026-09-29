@@ -3,7 +3,7 @@
   "desc": "Cheap handheld radio, crunchy and dropping."
  },
  "human.weight": 1.0,
- "master.out_db": -8.2,
+ "master.out_db": -8.3,
  "mix.radio": 1.0,
  "mix.stutter_ps": 0,
  "radio.bits": 7,

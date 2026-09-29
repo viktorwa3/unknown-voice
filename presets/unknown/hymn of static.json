@@ -1,0 +1,23 @@
+{
+ "_meta": {
+  "desc": "A broken hymn through a radio, freezing on held notes."
+ },
+ "choir.mix": 0.5,
+ "choir.voices": 5,
+ "glitch.freeze_ms": 600,
+ "glitch.freeze_ps": 0.5,
+ "harmony.flat": true,
+ "harmony.int1_st": 0,
+ "harmony.int2_st": 7,
+ "harmony.int3_st": 12,
+ "harmony.root_hz": 110,
+ "harmony.weight": 1.2,
+ "human.weight": 0.2,
+ "master.out_db": -2.3,
+ "mix.radio": 0.6,
+ "mix.rate_hz": 0.6,
+ "mix.stutter_ps": 0.2,
+ "mix.switch": 0.3,
+ "radio.drop_ps": 2.5,
+ "robot.weight": 0.5
+}

@@ -7,7 +7,7 @@
  "fem.weight": 0.6,
  "glitch.freeze_ps": 0.3,
  "glitch.reverse_ps": 0.4,
- "master.out_db": -2.2,
+ "master.out_db": -1.1,
  "mix.radio": 0.35,
  "mix.rate_hz": 1.8,
  "mix.stutter_ps": 0.6,

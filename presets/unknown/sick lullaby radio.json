@@ -4,7 +4,7 @@
  },
  "child.weight": 0.9,
  "human.weight": 0.2,
- "master.out_db": -4.4,
+ "master.out_db": -4.8,
  "mix.radio": 0.8,
  "mix.rate_hz": 0.8,
  "mix.switch": 0.4,

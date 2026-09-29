@@ -1,11 +1,11 @@
 """
-unknown_live.py v4 — REALTIME voice-changer engine ("Unknown"-style and many others) for Discord. Own DSP, no VSTs.
+unknown_live.py v5 — REALTIME voice-changer engine ("Unknown"-style and many others) for Discord. Own DSP, no VSTs.
 Every internal knob is a named parameter (see SPEC); a preset is a JSON file with (a subset of) them.
 GUI: unknown_live_ui.py (preset browser with folders/favorites, all sliders, devices). This file also runs standalone.
 
-Chain: mic -> input gain -> HPF -> STFT analysis [optional spectral freeze] -> 8 voices (peak-locked pitch shift +
-formant warp; vibrato / jitter / formant LFO) -> per-voice FX -> per-voice AGC -> random morph mix -> radio ->
-stutter / reverse chunks -> bitcrush / downsample -> tremolo -> gate -> EQ / phaser -> echo / reverb ->
+Chain: mic -> input gain -> HPF -> STFT analysis [optional spectral freeze] -> 9 voices (peak-locked pitch shift +
+formant warp; vibrato / jitter / formant LFO; harmony = up to 3 transposed copies) -> per-voice FX -> per-voice AGC ->
+random morph mix -> radio -> choir ensemble (N drifting copies) -> stutter / reverse chunks -> bitcrush / downsample -> tremolo -> gate -> EQ / phaser -> echo / reverb ->
 comp / makeup / limiter -> VB-Cable -> Discord.
 
 Presets: presets\\<folder>\\<name>.json (sub-folders allowed; "_meta": {"desc": "..."} is shown in the UI).
@@ -24,10 +24,10 @@ from pedalboard import (Pedalboard, HighpassFilter, LowpassFilter, LowShelfFilte
                         Distortion, Chorus, Bitcrush, Compressor, Limiter, Delay, Gain, Phaser, Reverb)
 
 SR = 48000
-VOICES = ["beast", "fem", "glide", "robot", "whisper", "demon", "child", "human"]
+VOICES = ["beast", "fem", "glide", "robot", "whisper", "demon", "child", "harmony", "human"]
 SHIFTED = ["beast", "fem", "glide", "robot", "demon", "child"]       # voices that get vibrato/jitter
 # initial post-FX gains (dB) so every voice sits at the dry level from the first word; adapted live (AGC)
-AGC_INIT_DB = dict(beast=-5.5, fem=9.7, glide=-2.3, robot=11.4, whisper=5.9, demon=-15.0, child=3.0, human=0.0)
+AGC_INIT_DB = dict(beast=-5.5, fem=9.7, glide=-2.3, robot=11.4, whisper=5.9, demon=-15.0, child=3.0, harmony=4.0, human=0.0)
 HERE = os.path.dirname(os.path.abspath(__file__))
 PRESET_DIR = os.path.join(HERE, "presets")
 
@@ -107,6 +107,22 @@ _p("Child", "child.breath", "Breath", 0, 1, 0.12)
 _p("Child", "child.hpf_hz", "HPF (Hz)", 20, 800, 200, "%.0f")
 _p("Child", "child.presence_db", "Presence 4k (dB)", -12, 12, 3, "%.1f")
 _p("Child", "child.chorus_mix", "Chorus mix", 0, 1, 0.2)
+# harmony: up to 3 transposed copies (a small choir / harmonizer); each copy has slightly different formants
+_p("Harmony", "harmony.int1_st", "Copy 1 interval (semitones)", -24, 24, -12, "%.0f")
+_p("Harmony", "harmony.lvl1", "Copy 1 level", 0, 1, 1.0)
+_p("Harmony", "harmony.int2_st", "Copy 2 interval (semitones)", -24, 24, 7, "%.0f")
+_p("Harmony", "harmony.lvl2", "Copy 2 level", 0, 1, 0.7)
+_p("Harmony", "harmony.int3_st", "Copy 3 interval (semitones)", -24, 24, 12, "%.0f")
+_p("Harmony", "harmony.lvl3", "Copy 3 level", 0, 1, 0.5)
+_p("Harmony", "harmony.snap", "Snap to semitones", kind="b", default=True)
+_p("Harmony", "harmony.flat", "Sing on a fixed root note (drone)", kind="b", default=False)
+_p("Harmony", "harmony.root_hz", "Root note when fixed (Hz)", 60, 500, 131, "%.0f")
+_p("Harmony", "harmony.formant", "Formant shift (x)", 0.6, 1.6, 1.0)
+_p("Harmony", "harmony.formant_spread", "Formant difference between copies", 0, 0.25, 0.06)
+_p("Harmony", "harmony.breath", "Breath", 0, 1, 0.1)
+_p("Harmony", "harmony.hpf_hz", "HPF (Hz)", 20, 600, 80, "%.0f")
+_p("Harmony", "harmony.presence_db", "Presence 3k (dB)", -12, 12, 2, "%.1f")
+_p("Harmony", "harmony.chorus_mix", "Chorus mix", 0, 1, 0.25)
 _p("Mod", "mod.vibrato_st", "Vibrato depth (semitones)", 0, 2, 0.0)
 _p("Mod", "mod.vibrato_hz", "Vibrato rate (Hz)", 0.1, 12, 5.0, "%.1f")
 _p("Mod", "mod.jitter_st", "Pitch jitter (semitones)", 0, 6, 0.0)
@@ -126,6 +142,13 @@ _p("Glitch", "glitch.freeze_ps", "Spectral freezes per second", 0, 2, 0.0)
 _p("Glitch", "glitch.freeze_ms", "Freeze length (ms)", 50, 2000, 300, "%.0f")
 _p("Glitch", "glitch.crush_bits", "Master bitcrush bits (16 = off)", 3, 16, 16, "%.1f")
 _p("Glitch", "glitch.downsample", "Downsample factor (1 = off)", 1, 24, 1, "%.0f")
+# choir / ensemble: N delayed copies of the whole mix, each with its own slow pitch drift and breathing level
+_p("Choir", "choir.mix", "Choir (ensemble) mix", 0, 1, 0.0)
+_p("Choir", "choir.voices", "Number of singers", 2, 8, 5, "%.0f")
+_p("Choir", "choir.detune_cents", "Detune (cents)", 0, 50, 14, "%.1f")
+_p("Choir", "choir.spread_ms", "Timing spread (ms)", 2, 80, 28, "%.0f")
+_p("Choir", "choir.rate_hz", "Drift speed (Hz)", 0.05, 3, 0.35)
+_p("Choir", "choir.level_var", "Level breathing", 0, 1, 0.3)
 _p("Space", "space.echo_mix", "Echo mix", 0, 1, 0.0)
 _p("Space", "space.echo_ms", "Echo time (ms)", 20, 1200, 250, "%.0f")
 _p("Space", "space.echo_fb", "Echo feedback", 0, 0.9, 0.3)
@@ -261,7 +284,7 @@ class Engine:
         self.omega = 2 * np.pi * self.k * self.H / self.N
         self.rng = np.random.default_rng(seed)
         self.inbuf = np.zeros(self.N)
-        self.pk_state = {v: (np.zeros(0, int), np.zeros(0)) for v in VOICES}
+        self.pk_state = {v: (np.zeros(0, int), np.zeros(0)) for v in VOICES + ["harmony0", "harmony1", "harmony2"]}
         self.ola = {v: np.zeros(self.N) for v in VOICES}
         self.lifter = max(20, int(0.0016 * SR * self.N / 2048))
         self.agc_db = dict(AGC_INIT_DB)
@@ -277,6 +300,7 @@ class Engine:
             "whisper": Pedalboard([HighpassFilter(300), PeakFilter(5000, gain_db=3, q=0.8)]),
             "demon": Pedalboard([HighpassFilter(30), LowShelfFilter(120, gain_db=3), Distortion(drive_db=18), LowpassFilter(3000)]),
             "child": Pedalboard([HighpassFilter(200), PeakFilter(4000, gain_db=3, q=0.9), Chorus(rate_hz=1.1, depth=0.2, mix=0.2)]),
+            "harmony": Pedalboard([HighpassFilter(80), PeakFilter(3000, gain_db=2, q=0.8), Chorus(rate_hz=0.6, depth=0.3, mix=0.25)]),
             "human": Pedalboard([]),
         }
         self.in_hpf = Pedalboard([HighpassFilter(80)])
@@ -295,6 +319,10 @@ class Engine:
         self.w_prev = np.zeros(len(VOICES)); self.w_prev[VOICES.index("human")] = 1.0
         self.radio_amt = 0.0; self.drop_left = 0; self.drop_gain = 1.0
         self.hist = np.zeros(int(SR * 0.6)); self.st_seg = None; self.st_left = 0; self.st_pos = 0
+        erng = np.random.default_rng(1234)                # fixed per-singer character for the ensemble
+        self.ens_buf = np.zeros(int(SR * 0.3)); self.ens_ph = erng.uniform(0, 2 * np.pi, 8)
+        self.ens_amp_ph = erng.uniform(0, 2 * np.pi, 8); self.ens_rate = erng.uniform(0.7, 1.3, 8)
+        self.ens_cents = erng.uniform(0.5, 1.0, 8) * np.where(np.arange(8) % 2 == 0, 1, -1)
         self.rv_seg = None; self.rv_left = 0; self.rv_pos = 0
         self.frz_left = 0; self.frz_mag = None; self.frz_ph = None; self.frz_f0 = 0.0
         self.ds_pos = 0; self.ds_last = 0.0
@@ -344,6 +372,8 @@ class Engine:
         d[2].drive_db = p["demon.drive_db"]; d[3].cutoff_frequency_hz = p["demon.lpf_hz"]
         c = self.fx["child"]
         c[0].cutoff_frequency_hz = p["child.hpf_hz"]; c[1].gain_db = p["child.presence_db"]; c[2].mix = p["child.chorus_mix"]
+        h = self.fx["harmony"]
+        h[0].cutoff_frequency_hz = p["harmony.hpf_hz"]; h[1].gain_db = p["harmony.presence_db"]; h[2].mix = p["harmony.chorus_mix"]
         self.in_hpf[0].cutoff_frequency_hz = p["master.in_hpf"]
         rf = self.radio_fx
         rf[0].cutoff_frequency_hz = p["radio.hpf"]; rf[1].cutoff_frequency_hz = p["radio.lpf"]
@@ -535,6 +565,24 @@ class Engine:
             rc = p["child.target_hz"] / med
             if p["child.snap"] and f0 > 0: rc = self._snap(f0 * rc) / f0
             specs["child"] = self._shift("child", Xf, env, rc * pm, p["child.formant"] * fm, p["child.breath"], energy)
+        if "harmony" in active:
+            lv = [p["harmony.lvl1"], p["harmony.lvl2"], p["harmony.lvl3"]]
+            tot = sum(l * l for l in lv)
+            if tot > 0:
+                Y = np.zeros(self.K, complex)
+                for i, (st_, l) in enumerate(zip([p["harmony.int1_st"], p["harmony.int2_st"], p["harmony.int3_st"]], lv)):
+                    if l <= 0: continue
+                    if p["harmony.flat"]:
+                        tf = p["harmony.root_hz"] * 2 ** (st_ / 12)
+                        if p["harmony.snap"]: tf = self._snap(tf)
+                        rh = tf / f0 if f0 > 0 else tf / med
+                    else:
+                        rh = 2 ** (st_ / 12)
+                        if p["harmony.snap"] and f0 > 0: rh = self._snap(f0 * rh) / f0
+                    frh = p["harmony.formant"] * (1 + p["harmony.formant_spread"] * (i - 1))
+                    Y += self._shift(f"harmony{i}", Xf, env, float(np.clip(rh, 0.1, 8.0)) * pm, frh * fm,
+                                     p["harmony.breath"], energy * l * l / tot)
+                specs["harmony"] = Y
         outs = {}
         for v in VOICES:
             buf = self.ola[v]
@@ -559,7 +607,9 @@ class Engine:
         we = self._eff_weights()
         active = {v for i, v in enumerate(VOICES) if we[i] > 0 or self.w_prev[i] > 1e-4}
         for v in VOICES:                          # a voice that just (re)appears starts with clean phase tracking
-            if v not in active: self.pk_state[v] = (np.zeros(0, int), np.zeros(0))
+            if v not in active:
+                for key in ([v] if v != "harmony" else ["harmony0", "harmony1", "harmony2"]):
+                    self.pk_state[key] = (np.zeros(0, int), np.zeros(0))
         in_db = -120.0
         for i in range(0, n, H):
             outs, key_db, lvl = self._hop(x[i:i + H], active); in_db = max(in_db, lvl)
@@ -600,6 +650,7 @@ class Engine:
                 self.drop_left -= 96
                 dg[i:i + 96] = np.linspace(self.drop_gain, tgt_g, min(96, n - i), endpoint=False); self.drop_gain = tgt_g
             mix = mix * (1 - a) + rad * dg * a
+        mix = self._ensemble(mix)
         mix = self._stutter(mix, gate)
         mix = self._reverse(mix, gate)
         self.hist = np.concatenate([self.hist, mix])[-len(self.hist):]
@@ -639,6 +690,29 @@ class Engine:
                 a = 1 - np.exp(-len(y) / (0.6 * SR))
                 self.agc_db[v] = float(np.clip(g0 + a * ((ref_db - v_db) - g0), -24, 24))
         return y * 10 ** (np.linspace(g0, self.agc_db[v], len(y)) / 20)
+
+    def _ensemble(self, mix):
+        """Choir: N copies of the mix with individual delays (timing spread) slowly modulated (-> pitch drift of
+        +-detune cents at choir.rate_hz) and slowly breathing levels. Mixed incoherently (/sqrt(N))."""
+        p = self.p; n = len(mix); L = len(self.ens_buf)
+        ext = np.concatenate([self.ens_buf, mix]); self.ens_buf = ext[-L:]
+        m = p["choir.mix"]
+        if m <= 0: return mix
+        K = int(round(p["choir.voices"])); t = np.arange(n); grid = np.arange(len(ext))
+        out = np.zeros(n)
+        for i in range(K):
+            rate = max(p["choir.rate_hz"] * self.ens_rate[i], 0.01)
+            cents = p["choir.detune_cents"] * abs(self.ens_cents[i])
+            D = min((2 ** (cents / 1200) - 1) * SR / (2 * np.pi * rate), 0.08 * SR)   # delay-mod depth -> pitch dev
+            base = p["choir.spread_ms"] / 1000 * SR * (i + 1) / K + D + 2
+            ph = self.ens_ph[i] + 2 * np.pi * rate * t / SR
+            y = np.interp(L + t - (base + D * np.sin(ph)), grid, ext)
+            aph = self.ens_amp_ph[i] + 2 * np.pi * 0.23 * self.ens_rate[i] * t / SR
+            out += y * (1 - p["choir.level_var"] * 0.5 * (1 + np.sin(aph)))
+            self.ens_ph[i] = float(ph[-1] + 2 * np.pi * rate / SR) % (2 * np.pi)
+            self.ens_amp_ph[i] = float(aph[-1]) % (2 * np.pi)
+        out /= np.sqrt(K)
+        return mix * (1 - 0.6 * m) + out * m
 
     def _stutter(self, mix, gate):
         n = len(mix); out = mix.copy()

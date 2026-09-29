@@ -6,7 +6,7 @@
  "glide.low_hz": 70,
  "glide.weight": 0.4,
  "human.weight": 1.0,
- "master.out_db": 0.8,
+ "master.out_db": 0.9,
  "mix.stutter_ps": 0,
  "mix.switch": 0.2,
  "mod.formant_lfo": 0.1,

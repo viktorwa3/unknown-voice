@@ -6,7 +6,7 @@
  "demon.drive_db": 20,
  "demon.weight": 1.2,
  "eq.low_db": 3,
- "master.out_db": 1.9,
+ "master.out_db": 1.7,
  "mix.rate_hz": 0.6,
  "mix.stutter_ps": 0.2,
  "mix.switch": 0.5,
