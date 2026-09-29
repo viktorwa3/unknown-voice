@@ -1,0 +1,11 @@
+{
+ "_meta": {
+  "desc": "Clean voice with an aggressive gate for noisy rooms."
+ },
+ "gate.floor_db": -80,
+ "gate.ratio": 3,
+ "gate.thr_db": -42,
+ "human.weight": 1.0,
+ "master.out_db": -1.6,
+ "mix.stutter_ps": 0
+}

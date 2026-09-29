@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Loud, horn-y, slightly echoing."
+ },
+ "eq.mid_db": 4,
+ "eq.mid_hz": 1500,
+ "human.weight": 1.0,
+ "master.out_db": -11.4,
+ "mix.radio": 1.0,
+ "mix.stutter_ps": 0,
+ "radio.bits": 16,
+ "radio.drive": 22,
+ "radio.drop_ps": 0,
+ "radio.hpf": 700,
+ "radio.lpf": 4000,
+ "space.echo_mix": 0.15,
+ "space.echo_ms": 120
+}

@@ -1,0 +1,13 @@
+{
+ "_meta": {
+  "desc": "8-bit terminal from 1983."
+ },
+ "eq.high_db": -6,
+ "glitch.crush_bits": 6,
+ "glitch.downsample": 6,
+ "master.out_db": -1.7,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "robot.note_hz": 147,
+ "robot.weight": 1.0
+}

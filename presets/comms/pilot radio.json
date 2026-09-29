@@ -1,0 +1,14 @@
+{
+ "_meta": {
+  "desc": "Clean aviation radio."
+ },
+ "human.weight": 1.0,
+ "master.out_db": -4.7,
+ "mix.radio": 1.0,
+ "mix.stutter_ps": 0,
+ "radio.bits": 12,
+ "radio.drive": 8,
+ "radio.drop_ps": 0.3,
+ "radio.hpf": 400,
+ "radio.lpf": 3200
+}

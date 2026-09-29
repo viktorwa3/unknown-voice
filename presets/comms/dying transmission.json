@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "desc": "Last message from a doomed ship."
+ },
+ "glitch.crush_bits": 6,
+ "glitch.freeze_ms": 300,
+ "glitch.freeze_ps": 0.4,
+ "human.weight": 0.7,
+ "master.out_db": -4.8,
+ "mix.radio": 1.0,
+ "mix.stutter_ps": 0.3,
+ "mix.switch": 0.5,
+ "radio.drop_depth": 1.0,
+ "radio.drop_max_ms": 250,
+ "radio.drop_ps": 5,
+ "whisper.weight": 0.4
+}

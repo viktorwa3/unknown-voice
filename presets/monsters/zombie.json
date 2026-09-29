@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Rotten lungs, slurred and unstable."
+ },
+ "beast.breath": 0.6,
+ "beast.formant": 0.85,
+ "beast.target_hz": 70,
+ "beast.weight": 1.0,
+ "eq.high_db": -4,
+ "human.weight": 0.3,
+ "master.out_db": 3.4,
+ "mix.stutter_ms": 90,
+ "mix.stutter_ps": 0.4,
+ "mix.switch": 0.4,
+ "mod.jitter_hz": 2,
+ "mod.jitter_st": 0.8,
+ "whisper.weight": 0.7
+}

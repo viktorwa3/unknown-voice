@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Formants and pitch cracking constantly, one voice falling apart."
+ },
+ "beast.weight": 0.6,
+ "fem.weight": 0.6,
+ "glide.weight": 1.2,
+ "master.out_db": 1.1,
+ "mix.rate_hz": 2.5,
+ "mix.stutter_ps": 0.5,
+ "mix.switch": 0.7,
+ "mod.formant_lfo": 0.35,
+ "mod.formant_lfo_hz": 1.5,
+ "mod.jitter_hz": 8,
+ "mod.jitter_st": 2.0
+}

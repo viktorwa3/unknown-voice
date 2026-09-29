@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "desc": "Wobbling pitch and slurred formants."
+ },
+ "glide.high_hz": 140,
+ "glide.low_hz": 70,
+ "glide.weight": 0.4,
+ "human.weight": 1.0,
+ "master.out_db": 0.8,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.2,
+ "mod.formant_lfo": 0.1,
+ "mod.jitter_hz": 1.2,
+ "mod.jitter_st": 1.5,
+ "mod.vibrato_hz": 0.8,
+ "mod.vibrato_st": 0.3
+}

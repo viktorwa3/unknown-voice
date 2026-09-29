@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "desc": "Hard-tuned pop vocal."
+ },
+ "fem.bits": 16,
+ "fem.chorus_mix": 0.35,
+ "fem.comb_mix": 0.0,
+ "fem.formant": 1.05,
+ "fem.snap": true,
+ "fem.target_hz": 190,
+ "fem.weight": 1.2,
+ "human.weight": 0.2,
+ "master.out_db": 0.9,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "space.reverb_mix": 0.15
+}

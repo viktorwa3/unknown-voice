@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "desc": "Breath, backwards syllables and sudden freezes. Silence between words."
+ },
+ "beast.weight": 0.4,
+ "demon.weight": 0.3,
+ "gate.floor_db": -70,
+ "glitch.freeze_ms": 250,
+ "glitch.freeze_ps": 0.3,
+ "glitch.reverse_ms": 220,
+ "glitch.reverse_ps": 1.0,
+ "master.out_db": 2.9,
+ "mix.rate_hz": 0.9,
+ "mix.stutter_ps": 0.3,
+ "mix.switch": 0.5,
+ "whisper.weight": 1.2
+}

@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "desc": "Half human, compressed and metallic."
+ },
+ "beast.formant": 0.9,
+ "beast.target_hz": 80,
+ "beast.weight": 0.8,
+ "eq.mid_db": 3,
+ "eq.mid_hz": 1200,
+ "glitch.crush_bits": 11,
+ "human.weight": 0.5,
+ "master.comp_ratio": 5,
+ "master.comp_thr": -26,
+ "master.out_db": 2.7,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.3,
+ "robot.note_hz": 98,
+ "robot.weight": 0.6
+}

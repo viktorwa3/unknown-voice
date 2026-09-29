@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Aggressive: demon and beast over a radio, reverse and freezes."
+ },
+ "beast.weight": 1.0,
+ "demon.weight": 0.6,
+ "fem.weight": 0.6,
+ "glitch.freeze_ps": 0.3,
+ "glitch.reverse_ps": 0.4,
+ "master.out_db": -2.2,
+ "mix.radio": 0.35,
+ "mix.rate_hz": 1.8,
+ "mix.stutter_ps": 0.6,
+ "mix.switch": 0.8,
+ "mod.jitter_st": 0.6
+}

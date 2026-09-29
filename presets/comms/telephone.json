@@ -1,0 +1,14 @@
+{
+ "_meta": {
+  "desc": "Landline call."
+ },
+ "human.weight": 1.0,
+ "master.out_db": -2.2,
+ "mix.radio": 1.0,
+ "mix.stutter_ps": 0,
+ "radio.bits": 16,
+ "radio.drive": 4,
+ "radio.drop_ps": 0,
+ "radio.hpf": 300,
+ "radio.lpf": 3400
+}

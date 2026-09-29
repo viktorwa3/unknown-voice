@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Hell's middle management. Very low, huge room."
+ },
+ "beast.weight": 0.6,
+ "demon.target_hz": 38,
+ "demon.weight": 1.3,
+ "eq.low_db": 2,
+ "human.weight": 0.1,
+ "master.out_db": 3.4,
+ "mix.rate_hz": 0.5,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.2,
+ "space.reverb_mix": 0.25,
+ "space.room": 0.7
+}

@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "desc": "A few semitones up, slightly smaller head."
+ },
+ "fem.bits": 16,
+ "fem.chorus_mix": 0.0,
+ "fem.comb_mix": 0.0,
+ "fem.formant": 1.08,
+ "fem.hpf_hz": 60,
+ "fem.presence_db": 2,
+ "fem.snap": false,
+ "fem.target_hz": 110,
+ "fem.weight": 1.0,
+ "master.out_db": -3.0,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0
+}

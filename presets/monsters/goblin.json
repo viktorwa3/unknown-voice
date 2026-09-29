@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Small, nasal, twitchy."
+ },
+ "child.formant": 1.35,
+ "child.target_hz": 280,
+ "child.weight": 1.0,
+ "eq.mid_db": 4,
+ "eq.mid_hz": 1800,
+ "human.weight": 0.3,
+ "master.out_db": -0.5,
+ "mix.stutter_ps": 0.1,
+ "mix.switch": 0.2,
+ "mod.jitter_hz": 6,
+ "mod.jitter_st": 0.6
+}

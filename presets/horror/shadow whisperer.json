@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Low whisper right behind your ear."
+ },
+ "demon.weight": 0.4,
+ "glitch.reverse_ps": 0.3,
+ "master.out_db": 2.7,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.4,
+ "space.echo_fb": 0.35,
+ "space.echo_mix": 0.3,
+ "space.echo_ms": 300,
+ "whisper.formant": 0.8,
+ "whisper.weight": 1.3
+}

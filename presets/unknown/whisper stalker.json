@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Mostly breath, a beast underneath, words sometimes run backwards."
+ },
+ "beast.weight": 0.6,
+ "eq.high_db": 2,
+ "glide.weight": 0.3,
+ "glitch.reverse_ms": 150,
+ "glitch.reverse_ps": 0.3,
+ "human.weight": 0.1,
+ "master.out_db": 4.0,
+ "mix.rate_hz": 0.8,
+ "mix.stutter_ps": 0.15,
+ "mix.switch": 0.4,
+ "space.reverb_mix": 0.12,
+ "space.room": 0.6,
+ "whisper.weight": 1.4
+}

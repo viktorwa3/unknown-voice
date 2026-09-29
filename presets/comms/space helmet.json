@@ -1,0 +1,20 @@
+{
+ "_meta": {
+  "desc": "Talking inside a helmet on comms."
+ },
+ "human.weight": 1.0,
+ "master.out_db": -0.0,
+ "mix.radio": 0.6,
+ "mix.stutter_ps": 0,
+ "radio.bits": 14,
+ "radio.drive": 3,
+ "radio.drop_ps": 0,
+ "radio.hpf": 250,
+ "radio.lpf": 5000,
+ "space.damping": 0.8,
+ "space.echo_fb": 0.5,
+ "space.echo_mix": 0.15,
+ "space.echo_ms": 25,
+ "space.reverb_mix": 0.15,
+ "space.room": 0.15
+}

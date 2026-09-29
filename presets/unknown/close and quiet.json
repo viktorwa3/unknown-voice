@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Subtle, intimate version: less FX, more breath."
+ },
+ "beast.weight": 0.6,
+ "eq.low_db": -2,
+ "fem.weight": 0.6,
+ "gate.hold_ms": 40,
+ "human.weight": 0.5,
+ "master.out_db": 3.3,
+ "mix.rate_hz": 1.0,
+ "mix.stutter_ps": 0.15,
+ "mix.switch": 0.5,
+ "whisper.weight": 0.8
+}

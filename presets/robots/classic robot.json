@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Monotone metal man."
+ },
+ "master.out_db": -2.2,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "robot.comb_fb": 0.5,
+ "robot.comb_ms": 5,
+ "robot.formant": 1.0,
+ "robot.note_hz": 110,
+ "robot.ring_hz": 50,
+ "robot.ring_mix": 0.6,
+ "robot.weight": 1.4
+}

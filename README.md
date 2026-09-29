@@ -75,14 +75,19 @@ Knobs: `--gate-thr -50` (dBFS, raise to -40 if room noise opens the gate, lower 
 `--gain 0` (dB), `--fft 1024` (lower latency, rougher low end), `--latency high` (if you hear crackles / xruns grow).
 Offline check of the live engine: `unknown_live.py --file raw\take01_normal.wav --out-file raw\out\live\test.wav -p glide`.
 
-## Live GUI — `unknown_live_ui.py` (recommended)
+## Live GUI — `unknown_live_ui.py` v2 (recommended)
 `.\run_live_ui.bat` (first time: `.\.venv\Scripts\python.exe -m pip install -r requirements.txt`).
-- Top: preset dropdown + quick buttons (Ctrl+Alt+1..9, Ctrl+Alt+0 = bypass). Picking a preset pulls ALL sliders to it.
-  `* modified` = unsaved changes. Type a name -> **Save** writes `presets\<name>.json`; **Delete** / **Revert** as expected.
-  Built-ins (morph, glide, radio, bypass) can't be overwritten; save your version under another name.
-- Left: devices (Mic = Microphone (Razer...), Output = CABLE Input, Monitor = Speakers (Razer...) to hear yourself),
-  FFT 2048/1024, buffer low/high, START / APPLY restarts audio with the new devices without quitting. Meters + live voice-mix plot.
-- Right: tabs with every engine parameter (Mix, Beast, Fem, Glide, Robot, Whisper, Human, Radio, Gate, Master).
-  Changes are live. Ctrl+click a slider to type a value. Per voice: weight, level trim, mute, solo.
-- Devices, last preset and your last slider state are remembered in `live_settings.json` (not in git); audio auto-starts next time.
-- CLI still works: `unknown_live.py -p presets\<name>.json`.
+- **Preset browser (left):** folders = sub-folders of `presets\` (any depth), search by name or description,
+  `.` / `*` = star a favorite, "favorites only" filter. Click a preset: every slider jumps to it.
+- **Top:** `<` `>` prev/next, random, favorite toggle, `* modified`. Save as `folder/name` (new folders are created),
+  optional description, Delete, Revert, Rescan presets (after copying JSON files in by hand).
+- **Favorites bar + global hotkeys:** Ctrl+Alt+1..9 = first 9 favorites, Ctrl+Alt+0 bypass,
+  Ctrl+Alt+Left/Right prev/next, Ctrl+Alt+R random.
+- **Tabs:** Voices (beast, fem, glide, robot, whisper, demon, child, human), Mix, FX (Mod, Glitch, Space, Radio),
+  Gate & Master (incl. input gain + 3-band EQ), Audio (devices, FFT, buffer, START/APPLY without restarting).
+- **Factory library:** 65 presets in unknown/, monsters/, robots/, horror/, comms/, fun/, utility/, all level-matched
+  to about -20 dB speech on take01. `python make_presets.py` rewrites them (same names only; your own files stay).
+- Engine v4 extras: vibrato, pitch jitter, formant wobble, tremolo, phaser, reverse chunks, spectral freeze,
+  master bitcrush / downsample, echo + reverb (after the gate, so tails ring out), input gain, EQ, soft-knee output.
+- `live_settings.json` (gitignored): devices, favorites, last preset + last slider state.
+- CLI: `unknown_live.py -p "unknown/whisper stalker"` or `--list-presets`.

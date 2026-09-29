@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Malfunctioning: crushed, stuttering, freezing."
+ },
+ "fem.weight": 0.6,
+ "glitch.crush_bits": 8,
+ "glitch.downsample": 2,
+ "glitch.freeze_ps": 0.3,
+ "human.weight": 0.4,
+ "master.out_db": -0.2,
+ "mix.rate_hz": 3.0,
+ "mix.stutter_ms": 40,
+ "mix.stutter_ps": 0.8,
+ "mix.switch": 1.0,
+ "robot.weight": 1.0
+}

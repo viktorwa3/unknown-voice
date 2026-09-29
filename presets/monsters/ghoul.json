@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Hissing scavenger."
+ },
+ "child.weight": 0.3,
+ "demon.weight": 0.5,
+ "glitch.reverse_ps": 0.3,
+ "master.out_db": 5.1,
+ "mix.rate_hz": 1.2,
+ "mix.stutter_ps": 0.2,
+ "mix.switch": 0.6,
+ "mod.jitter_st": 0.5,
+ "mod.phaser_mix": 0.4,
+ "whisper.weight": 1.0
+}

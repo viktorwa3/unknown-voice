@@ -1,0 +1,17 @@
+{
+ "_meta": {
+  "desc": "Shouty warrior, lots of distortion."
+ },
+ "beast.drive_db": 18,
+ "beast.formant": 0.8,
+ "beast.target_hz": 75,
+ "beast.weight": 1.2,
+ "demon.weight": 0.3,
+ "eq.mid_db": 3,
+ "eq.mid_hz": 900,
+ "human.weight": 0.2,
+ "master.comp_ratio": 5,
+ "master.out_db": 0.4,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.3
+}

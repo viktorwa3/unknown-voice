@@ -1,0 +1,13 @@
+{
+ "_meta": {
+  "desc": "One voice melting between monster and female."
+ },
+ "glide.weight": 1.5,
+ "human.weight": 0.15,
+ "master.out_db": 1.9,
+ "mix.rate_hz": 0.7,
+ "mix.stutter_ms": 50,
+ "mix.stutter_ps": 0.22,
+ "mix.switch": 0.3,
+ "whisper.weight": 0.3
+}

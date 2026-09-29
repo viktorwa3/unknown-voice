@@ -1,0 +1,14 @@
+{
+ "_meta": {
+  "desc": "Your voice fighting something inside it."
+ },
+ "demon.weight": 0.9,
+ "glitch.reverse_ps": 0.3,
+ "human.weight": 0.8,
+ "master.out_db": 1.4,
+ "mix.rate_hz": 1.8,
+ "mix.stutter_ps": 0.4,
+ "mix.switch": 0.9,
+ "mod.jitter_st": 0.5,
+ "whisper.weight": 0.4
+}

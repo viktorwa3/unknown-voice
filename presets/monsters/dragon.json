@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Ancient, enormous, echoing in a cave."
+ },
+ "beast.weight": 0.6,
+ "demon.formant": 0.55,
+ "demon.target_hz": 35,
+ "demon.weight": 1.2,
+ "eq.low_db": 4,
+ "master.out_db": 1.2,
+ "mix.rate_hz": 0.4,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.2,
+ "space.reverb_mix": 0.35,
+ "space.room": 0.9
+}

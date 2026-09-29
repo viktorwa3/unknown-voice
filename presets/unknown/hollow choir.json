@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Female, child and glide voices blended into a soft hollow choir."
+ },
+ "child.weight": 0.8,
+ "fem.chorus_mix": 0.5,
+ "fem.weight": 0.9,
+ "glide.weight": 0.6,
+ "master.out_db": 4.6,
+ "mix.rate_hz": 0.5,
+ "mix.stutter_ps": 0.1,
+ "mix.switch": 0.1,
+ "mod.vibrato_hz": 4.5,
+ "mod.vibrato_st": 0.25,
+ "space.reverb_mix": 0.25,
+ "space.room": 0.8,
+ "whisper.weight": 0.3
+}

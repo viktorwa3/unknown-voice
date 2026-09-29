@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Sounds like you, then suddenly isn't. Hard jumps into the other voices."
+ },
+ "beast.weight": 0.5,
+ "fem.weight": 0.5,
+ "glide.weight": 0.3,
+ "human.weight": 1.5,
+ "master.out_db": 1.7,
+ "mix.rate_hz": 1.0,
+ "mix.stutter_ms": 45,
+ "mix.stutter_ps": 0.4,
+ "mix.switch": 0.95,
+ "mod.jitter_st": 0.3
+}

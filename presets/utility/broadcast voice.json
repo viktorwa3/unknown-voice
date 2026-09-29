@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Radio-host compression and EQ."
+ },
+ "eq.high_db": 3,
+ "eq.low_db": 3,
+ "eq.mid_db": -2,
+ "eq.mid_hz": 400,
+ "human.weight": 1.0,
+ "master.comp_ratio": 4,
+ "master.comp_thr": -26,
+ "master.makeup_db": 9,
+ "master.out_db": -2.3,
+ "mix.stutter_ps": 0
+}

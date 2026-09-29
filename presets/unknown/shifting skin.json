@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Glide on steroids: fast slides that snap to the extremes."
+ },
+ "glide.jump": 0.8,
+ "glide.rate_hz": 2.5,
+ "glide.weight": 1.5,
+ "master.out_db": 0.7,
+ "mix.rate_hz": 0.8,
+ "mix.stutter_ps": 0.25,
+ "mix.switch": 0.2,
+ "mod.formant_lfo": 0.15,
+ "mod.formant_lfo_hz": 0.7,
+ "whisper.weight": 0.2
+}

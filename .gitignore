@@ -2,3 +2,4 @@ raw/out/
 __pycache__/
 .venv/
 live_settings.json
+_to_delete/

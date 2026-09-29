@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Whispering from down the corridor."
+ },
+ "eq.high_db": -3,
+ "fem.weight": 0.4,
+ "glide.weight": 0.6,
+ "master.out_db": 6.1,
+ "mix.rate_hz": 0.6,
+ "mix.stutter_ps": 0.1,
+ "mix.switch": 0.4,
+ "space.echo_fb": 0.45,
+ "space.echo_mix": 0.35,
+ "space.echo_ms": 380,
+ "space.reverb_mix": 0.3,
+ "space.room": 0.85,
+ "whisper.weight": 1.0
+}

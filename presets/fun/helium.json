@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Balloon voice."
+ },
+ "fem.bits": 16,
+ "fem.chorus_mix": 0.1,
+ "fem.comb_mix": 0.0,
+ "fem.formant": 1.6,
+ "fem.snap": false,
+ "fem.target_hz": 300,
+ "fem.weight": 1.3,
+ "master.out_db": -2.9,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0
+}

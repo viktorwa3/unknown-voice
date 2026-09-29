@@ -1,0 +1,20 @@
+{
+ "_meta": {
+  "desc": "Chewed cassette: crushed, downsampled, chunks played backwards."
+ },
+ "beast.weight": 0.8,
+ "eq.high_db": -4,
+ "fem.weight": 0.8,
+ "glitch.crush_bits": 9,
+ "glitch.downsample": 3,
+ "glitch.reverse_ms": 180,
+ "glitch.reverse_ps": 0.5,
+ "human.weight": 0.6,
+ "master.out_db": 3.5,
+ "mix.rate_hz": 1.2,
+ "mix.stutter_ms": 70,
+ "mix.stutter_ps": 0.6,
+ "mix.switch": 0.7,
+ "mod.tremolo": 0.2,
+ "mod.tremolo_hz": 8
+}

@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Female/child voices that get stuck on a vowel."
+ },
+ "beast.weight": 0.4,
+ "child.weight": 0.6,
+ "fem.weight": 1.0,
+ "glide.weight": 0.5,
+ "glitch.freeze_ms": 700,
+ "glitch.freeze_ps": 1.0,
+ "master.out_db": 4.9,
+ "mix.rate_hz": 1.3,
+ "mix.stutter_ps": 0.3,
+ "mix.switch": 0.6,
+ "space.reverb_mix": 0.2
+}

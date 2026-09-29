@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "Huge and slow, fee-fi-fo."
+ },
+ "beast.breath": 0.1,
+ "beast.drive_db": 3,
+ "beast.formant": 0.6,
+ "beast.shelf_db": 4,
+ "beast.target_hz": 45,
+ "beast.weight": 1.3,
+ "master.out_db": -0.6,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "space.reverb_mix": 0.2,
+ "space.room": 0.8
+}

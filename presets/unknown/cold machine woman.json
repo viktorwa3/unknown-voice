@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "The robotic female side, dominant and quantized."
+ },
+ "eq.high_db": 2,
+ "fem.weight": 1.2,
+ "glitch.crush_bits": 12,
+ "human.weight": 0.1,
+ "master.out_db": 1.7,
+ "mix.rate_hz": 1.2,
+ "mix.stutter_ps": 0.25,
+ "mix.switch": 0.5,
+ "robot.ring_hz": 50,
+ "robot.ring_mix": 0.5,
+ "robot.weight": 1.0
+}

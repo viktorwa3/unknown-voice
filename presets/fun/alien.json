@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Wobbly extraterrestrial."
+ },
+ "child.weight": 0.6,
+ "glide.weight": 0.5,
+ "master.out_db": 5.4,
+ "mix.rate_hz": 1.0,
+ "mix.stutter_ps": 0.1,
+ "mix.switch": 0.4,
+ "mod.phaser_mix": 0.6,
+ "mod.phaser_rate": 1.5,
+ "mod.vibrato_hz": 8,
+ "mod.vibrato_st": 1.0,
+ "robot.note_hz": 330,
+ "robot.ring_hz": 150,
+ "robot.weight": 0.7
+}

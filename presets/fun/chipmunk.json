@@ -1,0 +1,12 @@
+{
+ "_meta": {
+  "desc": "Classic sped-up squeak."
+ },
+ "child.chorus_mix": 0.0,
+ "child.formant": 1.6,
+ "child.target_hz": 450,
+ "child.weight": 1.4,
+ "master.out_db": -2.0,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0
+}

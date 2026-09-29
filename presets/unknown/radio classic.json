@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Broken transmission, all voices jumping."
+ },
+ "beast.weight": 0.8,
+ "fem.weight": 0.8,
+ "human.weight": 0.8,
+ "master.out_db": -5.8,
+ "mix.radio": 1.0,
+ "mix.rate_hz": 1.5,
+ "mix.stutter_ms": 45,
+ "mix.stutter_ps": 0.45,
+ "mix.switch": 0.8,
+ "robot.weight": 0.5
+}

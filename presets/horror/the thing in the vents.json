@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Metallic duct echo, whispers and clicks."
+ },
+ "beast.weight": 0.4,
+ "child.weight": 0.4,
+ "eq.mid_db": 5,
+ "eq.mid_hz": 2500,
+ "master.out_db": 3.5,
+ "mix.stutter_ps": 0.3,
+ "mix.switch": 0.5,
+ "space.echo_fb": 0.6,
+ "space.echo_mix": 0.4,
+ "space.echo_ms": 90,
+ "space.reverb_mix": 0.2,
+ "space.room": 0.3,
+ "whisper.weight": 1.0
+}

@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "A bit deeper and bigger, still natural."
+ },
+ "beast.breath": 0.05,
+ "beast.drive_db": 0,
+ "beast.formant": 0.9,
+ "beast.hpf_hz": 40,
+ "beast.lpf_hz": 12000,
+ "beast.shelf_db": 2,
+ "beast.target_hz": 70,
+ "beast.weight": 1.0,
+ "master.out_db": -0.8,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0
+}

@@ -1,0 +1,19 @@
+{
+ "_meta": {
+  "desc": "All voices, switching 5 times a second, heavy stutter and reverse."
+ },
+ "beast.weight": 1.0,
+ "demon.weight": 0.4,
+ "fem.weight": 1.0,
+ "glide.weight": 0.6,
+ "glitch.reverse_ms": 80,
+ "glitch.reverse_ps": 0.8,
+ "human.weight": 0.6,
+ "master.out_db": 3.2,
+ "mix.rate_hz": 5.0,
+ "mix.stutter_ms": 35,
+ "mix.stutter_ps": 2.0,
+ "mix.switch": 1.0,
+ "robot.weight": 0.6,
+ "whisper.weight": 0.6
+}

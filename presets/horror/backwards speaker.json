@@ -1,0 +1,14 @@
+{
+ "_meta": {
+  "desc": "Most syllables come out reversed."
+ },
+ "glide.weight": 0.3,
+ "glitch.reverse_ms": 260,
+ "glitch.reverse_ps": 2.5,
+ "human.weight": 0.8,
+ "master.out_db": 5.8,
+ "mix.stutter_ps": 0.2,
+ "mix.switch": 0.5,
+ "space.reverb_mix": 0.15,
+ "whisper.weight": 0.5
+}

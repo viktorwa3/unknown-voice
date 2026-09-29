@@ -1,0 +1,21 @@
+{
+ "_meta": {
+  "desc": "Big booming arena voice."
+ },
+ "beast.breath": 0.05,
+ "beast.drive_db": 2,
+ "beast.formant": 0.9,
+ "beast.target_hz": 75,
+ "beast.weight": 0.3,
+ "eq.high_db": 2,
+ "eq.low_db": 2,
+ "human.weight": 1.0,
+ "master.out_db": 4.1,
+ "mix.stutter_ps": 0,
+ "mix.switch": 0.0,
+ "space.echo_fb": 0.35,
+ "space.echo_mix": 0.25,
+ "space.echo_ms": 450,
+ "space.reverb_mix": 0.3,
+ "space.room": 0.95
+}

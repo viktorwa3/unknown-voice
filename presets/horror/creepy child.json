@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "A small voice that shouldn't be there."
+ },
+ "child.formant": 1.5,
+ "child.target_hz": 360,
+ "child.weight": 1.3,
+ "master.out_db": 1.5,
+ "mix.stutter_ps": 0.05,
+ "mix.switch": 0.2,
+ "mod.vibrato_st": 0.2,
+ "space.reverb_mix": 0.2,
+ "space.room": 0.6,
+ "whisper.weight": 0.3
+}
