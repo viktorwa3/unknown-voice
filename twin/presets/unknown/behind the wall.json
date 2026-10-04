@@ -1,0 +1,11 @@
+{
+ "_meta": {
+  "desc": "Far away and muffled, like it is in the next room."
+ },
+ "horror.amount": 0.3,
+ "master.out_db": 5,
+ "space.distance": 0.5,
+ "space.occlusion": 0.8,
+ "space.room": 0.45,
+ "space.room_mix": 0.3
+}

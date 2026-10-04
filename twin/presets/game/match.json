@@ -1,0 +1,22 @@
+{
+ "_meta": {
+  "desc": "Fitted to the real game: both takes at once, global -2 st, shadow harmonizer + 440/620 ms echo, wide-band tone."
+ },
+ "blur.ps": 0.05,
+ "echo.mix": 1.0,
+ "female.formant": 1.4,
+ "female.presence_db": 0.0,
+ "female.target_hz": 300.0,
+ "game.pitch_st": -2.0,
+ "horror.amount": 0.25,
+ "horror.band": 0.0,
+ "horror.hiss_db": -70.0,
+ "male.formant": 0.95,
+ "male.lpf_hz": 16000.0,
+ "male.pitch_st": 11.0,
+ "shadow.mix": 1.0,
+ "stutter.ps": 0.05,
+ "tone.air_db": 9.0,
+ "tone.dip_db": -4.0,
+ "tone.low_db": 6.0
+}

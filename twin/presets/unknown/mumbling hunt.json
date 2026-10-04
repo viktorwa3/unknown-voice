@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "desc": "Chasing: muddier, two throats out of sync, more blur and dropouts. Clear phrases rare."
+ },
+ "blur.ms": 260,
+ "blur.ps": 0.4,
+ "clear.chance": 0.1,
+ "female.ring_mix": 0.2,
+ "horror.amount": 0.85,
+ "horror.drop_pct": 4,
+ "male.bode_mix": 0.4,
+ "motion.depth": 0.8,
+ "motion.desync_drift": 0.7,
+ "motion.desync_ms": 35,
+ "motion.jumps_ps": 0.8,
+ "stutter.ps": 0.25,
+ "whisper.level_db": -13
+}

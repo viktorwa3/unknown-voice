@@ -1,0 +1,25 @@
+{
+ "_meta": {
+  "desc": "Your clean voice."
+ },
+ "blur.ps": 0,
+ "clear.chance": 0,
+ "clear.residual_db": -40,
+ "female.bode_mix": 0,
+ "female.drift_cents": 0,
+ "female.mute": true,
+ "female.ring_mix": 0,
+ "female.tune": 0,
+ "horror.amount": 0,
+ "male.bode_mix": 0,
+ "male.drift_cents": 0,
+ "male.formant": 1.0,
+ "male.ring_mix": 0,
+ "motion.bias": -1,
+ "motion.depth": 0,
+ "motion.jumps_ps": 0,
+ "motion.onset_flip": 0,
+ "space.room_mix": 0,
+ "stutter.ps": 0,
+ "whisper.level_db": -40
+}

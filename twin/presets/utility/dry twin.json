@@ -1,0 +1,20 @@
+{
+ "_meta": {
+  "desc": "Just the two layers swaying, no FX at all (reference)."
+ },
+ "blur.ps": 0,
+ "clear.chance": 0,
+ "female.bode_mix": 0,
+ "female.drift_cents": 0,
+ "female.ring_mix": 0,
+ "female.tune": 0,
+ "horror.amount": 0,
+ "male.bode_mix": 0,
+ "male.drift_cents": 0,
+ "male.ring_mix": 0,
+ "motion.depth": 0.7,
+ "motion.jumps_ps": 0.5,
+ "space.room_mix": 0,
+ "stutter.ps": 0,
+ "whisper.level_db": -40
+}

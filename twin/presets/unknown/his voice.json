@@ -1,0 +1,10 @@
+{
+ "_meta": {
+  "desc": "Mostly the male voice, the female one bleeding through."
+ },
+ "clear.voice": 0.0,
+ "male.bode_mix": 0.35,
+ "male.pitch_st": -2,
+ "motion.bias": -0.55,
+ "motion.depth": 0.4
+}

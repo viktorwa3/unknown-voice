@@ -1,0 +1,16 @@
+{
+ "_meta": {
+  "desc": "It tries to sound human and fails: flips voice on syllables, hard robotic tune, metallic shift."
+ },
+ "clear.chance": 0.25,
+ "female.drift_cents": 45,
+ "female.retune_ms": 0,
+ "female.tune": 1.0,
+ "male.bode_hz": 22,
+ "male.bode_mix": 0.45,
+ "male.drift_cents": 60,
+ "motion.jump_ms": 12,
+ "motion.jumps_ps": 0.9,
+ "motion.onset_flip": 0.7,
+ "stutter.ps": 0.35
+}

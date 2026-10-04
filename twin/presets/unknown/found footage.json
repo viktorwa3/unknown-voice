@@ -1,0 +1,15 @@
+{
+ "_meta": {
+  "desc": "Analog-horror tape: narrow band, wow/flutter, dropouts, hiss only while talking."
+ },
+ "horror.amount": 1.0,
+ "horror.band": 1.0,
+ "horror.drive_db": 10,
+ "horror.drop_pct": 5,
+ "horror.flutter_cents": 4,
+ "horror.hiss_db": -45,
+ "horror.hpf": 300,
+ "horror.lpf": 3200,
+ "horror.wow_cents": 14,
+ "space.room_mix": 0.05
+}

@@ -1,0 +1,11 @@
+{
+ "_meta": {
+  "desc": "Mostly the robotic female voice, the male one shimmering underneath."
+ },
+ "clear.voice": 1.0,
+ "female.retune_ms": 5,
+ "female.ring_mix": 0.18,
+ "female.tune": 1.0,
+ "motion.bias": 0.55,
+ "motion.depth": 0.4
+}

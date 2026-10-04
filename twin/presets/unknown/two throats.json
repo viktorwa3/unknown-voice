@@ -1,0 +1,12 @@
+{
+ "_meta": {
+  "desc": "Both voices nearly equal all the time, the female one noticeably late: two people in one mouth."
+ },
+ "female.tune": 0.3,
+ "horror.amount": 0.35,
+ "motion.depth": 0.2,
+ "motion.desync_drift": 0.8,
+ "motion.desync_ms": 45,
+ "motion.jumps_ps": 0.15,
+ "whisper.level_db": -22
+}
